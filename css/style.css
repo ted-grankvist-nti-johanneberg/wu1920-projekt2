@@ -5,37 +5,71 @@
 
 :root {
     font-size: 14px;
+    --header-bg-color:#9C0000;
+    --bg-color: #E1E2E1;
+    --button-bg-color: #D60000;
+    --text-color: #01161E;
+    --drk-shadow-color: #000000;
+    --light-shadow-color: #FBFEF9;
+    --error-bg-color: #FF7400;
 }
+ 
 
 body {
     display: flex;
-    width: 100%;
-    height: 100%;
+    width: 100%; /* ev ändra till vw */
+    height: 100%; /* ev ändra till vh */
     flex-direction: column;
-    background-color: #E1E2E1;
+    background-color: var(--bg-color);
     justify-content: space-between;
     align-items: center;
 }
 
-header {
+.status_bar {
+    flex: 0.2 0.2 auto;
     display: flex;
-    background-color: #9C0000;
-    width: 100%;
-    min-height: 100px;
-    max-height: 150px;
-    /* flex: 1 1 auto; */
+    background-color: var(--button-bg-color);
+    width: 100%; /*ev ändra till vw */
+   /* min-height: 20px;
+    max-height: 40px; */
 }
 
-.status_bar {
-    background-color: #D60000;
-    width: 100%;
-    min-height: 20px;
-    max-height: 40px;
+header {
     flex: 1 1 auto;
+    display: flex;
+    flex-direction: row;
+    background-color: var(--headorbutton-bg-color);
+    width: 100%; /*ev ändra till vw */
+   /* min-height: 100px;
+    max-height: 150px;*/
 }
 
 .nav_grid {
-    width: 80%;
-    min-height: 300px;
-    max-height: 500px;
+    flex: 3 3 auto;
+    display: flex;
+    width: 80%; /* ev ändra till vw */
+   /* min-height: 300px;
+    max-height: 500px; */
+    flex-flow: row wrap;
 }
+
+footer {
+    width: 100%; /* ev ändra till vw */
+    flex: 0.5 0.5 auto;
+}
+
+/* min nuvarande idé är att ha en fulltäckande body som är en flexbox
+med avseende på y/vertikal/ enkolumnig och bodyn skall bero på viewporten
+och fylla hela och om viewporten förändras kommer även itemsen i växa/minska
+i vertikal höjd (status_bar, header, nav, footer) och sedan skall contenten inuti
+(bilder, text osv) vara baserad på viewporten också vilket leder till att dem
+förändrar sig dig viewport gör det vilket kommer säkerställa att
+containrarna både täcker in alla bilder samt att storlekarna
+på containrarna anpassar sig till varandra enligt flex grow och shrink
+Containrarna skall alltså INTE ha några definerade höjder men definerade 
+bredder vilket går ihop med en enkolumnings parent-flexbox */
+
+
+/* Om tid finns i slutet av projektet kan du även leka med css animationer där 
+du animerar färger vilket du gjort flitigt i halloweenprojektet/mobilsidan utan
+att påverka något annat i systemen */

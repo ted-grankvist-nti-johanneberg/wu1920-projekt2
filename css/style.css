@@ -12,6 +12,7 @@
     --drk-shadow-color: #000000;
     --light-shadow-color: #FBFEF9;
     --error-bg-color: #FF7400;
+    --body-font-size: 1.2vmin; /* vmin använder antingen 1.5vh eller 1.5vw beroende på vilken av sidorna som är kortast */
 }
  
 
@@ -44,7 +45,7 @@ header {
     max-height: 150px;*/
 }
 
-.nav_grid {
+.nav_flexgrid {
     flex: 3 3 auto;
     display: flex;
     width: 80%; /* ev ändra till vw */
@@ -67,9 +68,17 @@ förändrar sig dig viewport gör det vilket kommer säkerställa att
 containrarna både täcker in alla bilder samt att storlekarna
 på containrarna anpassar sig till varandra enligt flex grow och shrink
 Containrarna skall alltså INTE ha några definerade höjder men definerade 
-bredder vilket går ihop med en enkolumnings parent-flexbox */
+bredder vilket går ihop med en enkolumnings parent-flexbox.
+Till text skall du använda vmin eller vmax som unit (googla).
+En idé kan vara att använda vmax eller vmin till andra element också (som ikoner och bilder)
+så du slipper välja mellan vh och vm, men tänk på att vara försiktig
+Försök också använda icons från fontawesome så mycket som möjligt*/
+
 
 
 /* Om tid finns i slutet av projektet kan du även leka med css animationer där 
 du animerar färger vilket du gjort flitigt i halloweenprojektet/mobilsidan utan
 att påverka något annat i systemen */
+
+/* försök gärna att använda dig av en paralax effekt någonstans, om möjligt */
+

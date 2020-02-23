@@ -4,7 +4,7 @@
 }
 
 :root {
-    font-size: 14px;
+   /* font-size: 14px; */
     --header-bg-color:#9C0000;
     --bg-color: #E1E2E1;
     --button-bg-color: #D60000;
@@ -13,6 +13,8 @@
     --light-shadow-color: #FBFEF9;
     --error-bg-color: #FF7400;
     --body-font-size: 1.2vmin; /* vmin använder antingen 1.5vh eller 1.5vw beroende på vilken av sidorna som är kortast */
+    --header-font: 'Limelight', ;
+    --body-font: 'Open Sans', ;
 }
  
 
@@ -29,6 +31,9 @@ body {
 .status_bar {
     flex: 0.2 0.2 auto;
     display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
     background-color: var(--button-bg-color);
     width: 100%; /*ev ändra till vw */
    /* min-height: 20px;
@@ -39,10 +44,11 @@ header {
     flex: 1 1 auto;
     display: flex;
     flex-direction: row;
-    background-color: var(--headorbutton-bg-color);
+    background-color: var(--header-bg-color);
     width: 100%; /*ev ändra till vw */
    /* min-height: 100px;
     max-height: 150px;*/
+    justify-content: space-around; /* ev byt till space-between */
 }
 
 .nav_flexgrid {
@@ -55,8 +61,27 @@ header {
 }
 
 footer {
+    display: none;
     width: 100%; /* ev ändra till vw */
     flex: 0.5 0.5 auto;
+}
+
+.statusicons {
+    font-size: 3vh;
+}
+
+#flagbutton {
+    background-image: url("../img/icon_buratino.png");
+    border: none;
+    color: white;
+  /*  display: inline-block; */
+    height: 4vmax;
+    width: 4vmax;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 50%;
+    margin: 1vh 0 1vh;
+    border: 0.2vmax solid var(--text-color);
 }
 
 /* min nuvarande idé är att ha en fulltäckande body som är en flexbox
@@ -64,7 +89,7 @@ med avseende på y/vertikal/ enkolumnig och bodyn skall bero på viewporten
 och fylla hela och om viewporten förändras kommer även itemsen i växa/minska
 i vertikal höjd (status_bar, header, nav, footer) och sedan skall contenten inuti
 (bilder, text osv) vara baserad på viewporten också vilket leder till att dem
-förändrar sig dig viewport gör det vilket kommer säkerställa att
+förändrar sig då viewport gör det vilket kommer säkerställa att
 containrarna både täcker in alla bilder samt att storlekarna
 på containrarna anpassar sig till varandra enligt flex grow och shrink
 Containrarna skall alltså INTE ha några definerade höjder men definerade 
@@ -74,11 +99,20 @@ En idé kan vara att använda vmax eller vmin till andra element också (som iko
 så du slipper välja mellan vh och vm, men tänk på att vara försiktig
 Försök också använda icons från fontawesome så mycket som möjligt*/
 
+/* De delar som skiljer sig från sida till sida bör du skapa olika klasser för så
+att det enkelt går att redigera */
 
 
 /* Om tid finns i slutet av projektet kan du även leka med css animationer där 
 du animerar färger vilket du gjort flitigt i halloweenprojektet/mobilsidan utan
-att påverka något annat i systemen */
+att påverka något annat i systemen, eller animerar andra properties*/
 
 /* försök gärna att använda dig av en paralax effekt någonstans, om möjligt */
+
+/* Lägg till en media quierie som typ sätter display: none; på massa klasser/element då 
+höjden blir under 200 px eller så dylikt, så att man endast ser header och statusbar elr så,
+höj då också vh, vw och vmax/vmin i den media quieries för items inuti*/
+
+/* Istället för att använda dina ikoner till rubriker osv tar du ikoner från material.io och
+använder animated icons för att göra riktigt snygga animations när man klickar på dem typ */
 

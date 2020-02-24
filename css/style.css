@@ -1,6 +1,7 @@
 * {
     padding: 0;
     margin: 0;
+    box-sizing: border-box;
 }
 
 :root {
@@ -13,8 +14,8 @@
     --light-shadow-color: #FBFEF9;
     --error-bg-color: #FF7400;
     --body-font-size: 1.2vmin; /* vmin använder antingen 1.5vh eller 1.5vw beroende på vilken av sidorna som är kortast */
-    --header-font: 'Limelight', ;
-    --body-font: 'Open Sans', ;
+    --header-font-family: 'Limelight', ;           /* Även om dessa två fonter ej är "familjer" har google valt att använda sig av font-family oavsettm vilket binder mig till att också göra det */
+    --body-font-family: 'Open Sans', ;
 }
  
 
@@ -49,9 +50,46 @@ header {
    /* min-height: 100px;
     max-height: 150px;*/
     justify-content: space-around; /* ev byt till space-between */
+    align-items: center;
 }
 
-.nav_flexgrid {
+button.small {
+    background-image: url("../img/englandflag3.webp");
+    background-size: 3.9vmax 3.9vmax;
+  /*  display: inline-block; */
+    height: 4vmax;
+    width: 4vmax;
+    cursor: pointer;
+    border-radius: 50%;
+    margin: 1vh 0 1vh;
+    border: 0.1vmax solid var(--text-color);
+}
+
+button.flag {
+    background-image: url("../img/englandflag3.webp");
+    background-size: 3.9vmax 3.9vmax;
+}
+
+
+
+header div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* margin: 0.5vh 0 0.5vh; */
+    text-align: center; 
+}
+
+/* Ändra storlek på h1 och h2 i divven */
+
+header div hr {
+    height: 20%;
+    margin: 0.2vh 0.2vh;
+
+
+}
+
+main.nav_flexgrid {
     flex: 3 3 auto;
     display: flex;
     width: 80%; /* ev ändra till vw */
@@ -70,19 +108,6 @@ footer {
     font-size: 3vh;
 }
 
-#flagbutton {
-    background-image: url("../img/icon_buratino.png");
-    border: none;
-    color: white;
-  /*  display: inline-block; */
-    height: 4vmax;
-    width: 4vmax;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 50%;
-    margin: 1vh 0 1vh;
-    border: 0.2vmax solid var(--text-color);
-}
 
 /* min nuvarande idé är att ha en fulltäckande body som är en flexbox
 med avseende på y/vertikal/ enkolumnig och bodyn skall bero på viewporten

@@ -5,7 +5,7 @@
 }
 
 :root {
-   /* font-size: 14px; */
+    font-size: 3vmin;
     --header-bg-color:#9C0000;
     --bg-color: #E1E2E1;
     --button-bg-color: #D60000;
@@ -14,8 +14,8 @@
     --light-shadow-color: #FBFEF9;
     --error-bg-color: #FF7400;
     --body-font-size: 1.2vmin; /* vmin använder antingen 1.5vh eller 1.5vw beroende på vilken av sidorna som är kortast */
-    --header-font-family: 'Limelight', ;           /* Även om dessa två fonter ej är "familjer" har google valt att använda sig av font-family oavsettm vilket binder mig till att också göra det */
-    --body-font-family: 'Open Sans', ;
+    --h1-font-family: 'Limelight', Verdana, Helvetica;    /* Även om dessa två fonter ej är "familjer" har google valt att använda sig av font-family oavsettm vilket binder mig till att också göra det */
+    --body-font-family: 'Open Sans', sans-serif, Arial;
 }
  
 
@@ -53,24 +53,20 @@ header {
     align-items: center;
 }
 
-button.small {
-    background-image: url("../img/englandflag3.webp");
-    background-size: 3.9vmax 3.9vmax;
-  /*  display: inline-block; */
-    height: 4vmax;
-    width: 4vmax;
-    cursor: pointer;
-    border-radius: 50%;
-    margin: 1vh 0 1vh;
-    border: 0.1vmax solid var(--text-color);
-}
-
 button.flag {
     background-image: url("../img/englandflag3.webp");
     background-size: 3.9vmax 3.9vmax;
 }
 
-
+button.small {
+  /*  display: inline-block; */
+    height: 4vmax;
+    width: 4vmax;
+    cursor: pointer;
+    border-radius: 50%;
+    margin: 1vmax 0 1vmax;
+    border: 0.1vmax solid var(--text-color);
+}
 
 header div {
     display: flex;
@@ -78,15 +74,34 @@ header div {
     justify-content: center;
     /* margin: 0.5vh 0 0.5vh; */
     text-align: center; 
+    align-items: center;
+    margin: 0.6vmax 0;
 }
 
 /* Ändra storlek på h1 och h2 i divven */
 
+header div h1 {
+    display: inline-block;
+    font-family: var(--h1-font-family);
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+header div h2 {
+    display: inline-blocK;
+    font-family: var(--body-font-family);
+    font-size: 1.6rem;
+    font-weight: bold; /* Ändra tills nästa gång, du vill ha en tjockare h2 */
+}     /* Hade kunnat använda (header div h1, header div h2) som selector ovan och endast ändrat font-family och font-size för (header div h2) under men det 
+hade inte blivit lika tydligt för läsaren som att dela upp det */
+
 header div hr {
-    height: 20%;
-    margin: 0.2vh 0.2vh;
-
-
+    border: none;
+    background-color: var(--text-color);
+    height: 0.7vmax;
+    margin: 0.1vh 0.3vw;
+    width: 40vmin; /* Se till att fixa detta också med h1 och h2 så att denna inte blir för lång i jämförelse med dem */
+    border-radius: 2vmax;
 }
 
 main.nav_flexgrid {
@@ -105,7 +120,7 @@ footer {
 }
 
 .statusicons {
-    font-size: 3vh;
+    font-size: 2vh;
 }
 
 
@@ -140,4 +155,3 @@ höj då också vh, vw och vmax/vmin i den media quieries för items inuti*/
 
 /* Istället för att använda dina ikoner till rubriker osv tar du ikoner från material.io och
 använder animated icons för att göra riktigt snygga animations när man klickar på dem typ */
-

@@ -16,6 +16,7 @@
     --body-font-size: 1.2vmin; /* vmin använder antingen 1.5vh eller 1.5vw beroende på vilken av sidorna som är kortast */
     --h1-font-family: 'Limelight', Verdana, Helvetica;
     --body-font-family: 'Open Sans', sans-serif, Arial;
+    color: var(--text-color);
 }
  
 
@@ -66,9 +67,10 @@ button.small {
 
 button#aboutus {
     text-align: center;
+    color: inherit;
     font-family: var(--body-font-family);
-    font-size:1rem;
-    line-height: 1.5vmax; 
+    font-size: 1.8vmax;
+    line-height: 1.8vmax; 
     font-weight: 600;
 }
 
@@ -104,7 +106,6 @@ header div h2 {
     font-size: 1.6rem;
     font-weight: 800;
     letter-spacing: 0.2vw;
-    /* Ändra tills nästa gång, du vill ha en tjockare h2 */
 }     /* Hade kunnat använda (header div h1, header div h2) som selector ovan och endast ändrat font-family och font-size för (header div h2) under men det 
 hade inte blivit lika tydligt för läsaren som att dela upp det */
 
@@ -117,12 +118,12 @@ header div hr {
     border-radius: 2vmax;
 }
 
-header div:last-of-type {
+/* header div:last-of-type {
     text-align: center;
     font-family: var(--body-font-family);
-    font-size:1.2rem;
+    font-size: 1.1rem;
     font-weight: 600;
-}
+} */
 
 main.nav_flexgrid {
     flex: 3 3 auto;
@@ -181,3 +182,6 @@ använder animated icons för att göra riktigt snygga animations när man klick
 du valt att inte använda dig av grids. (Koppla det till ditt flexbox-system och att det
 fungerar att hela responsitivtetsystemet bygger på flexbox. Eftersom ett grid-system
 går att ersättas av en flexbox på ett effektivt sätt fungerar det därför bättre osv) */
+
+
+/* Vissa problem font-size problem kan lösas genom att använda en font size med vmax istället för vmin. */

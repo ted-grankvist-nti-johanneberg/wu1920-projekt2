@@ -14,7 +14,7 @@
     --light-shadow-color: #FBFEF9;
     --error-bg-color: #FF7400;
     --body-font-size: 1.2vmin; /* vmin använder antingen 1.5vh eller 1.5vw beroende på vilken av sidorna som är kortast */
-    --h1-font-family: 'Limelight', Verdana, Helvetica;    /* Även om dessa två fonter ej är "familjer" har google valt att använda sig av font-family oavsettm vilket binder mig till att också göra det */
+    --h1-font-family: 'Limelight', Verdana, Helvetica;
     --body-font-family: 'Open Sans', sans-serif, Arial;
 }
  
@@ -53,22 +53,32 @@ header {
     align-items: center;
 }
 
-button.flag {
-    background-image: url("../img/englandflag3.webp");
-    background-size: 3.9vmax 3.9vmax;
-}
-
 button.small {
   /*  display: inline-block; */
-    height: 4vmax;
-    width: 4vmax;
+    height: 5.5vmax;
+    width: 5.5vmax;
     cursor: pointer;
     border-radius: 50%;
     margin: 1vmax 0 1vmax;
     border: 0.1vmax solid var(--text-color);
+    background-color: var(--button-bg-color);
 }
 
-header div {
+button#aboutus {
+    text-align: center;
+    font-family: var(--body-font-family);
+    font-size:1rem;
+    line-height: 1.5vmax; 
+    font-weight: 600;
+}
+
+button.flag {
+    background-color: transparent; /* För att jag är paranoid */
+    background-image: url("../img/englandflag3.webp");
+    background-size: 5.4vmax 5.4vmax;
+}
+
+header div:first-of-type {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -85,13 +95,16 @@ header div h1 {
     font-family: var(--h1-font-family);
     font-size: 2rem;
     font-weight: bold;
+    letter-spacing: 0.5vw;
 }
 
 header div h2 {
     display: inline-blocK;
     font-family: var(--body-font-family);
     font-size: 1.6rem;
-    font-weight: bold; /* Ändra tills nästa gång, du vill ha en tjockare h2 */
+    font-weight: 800;
+    letter-spacing: 0.2vw;
+    /* Ändra tills nästa gång, du vill ha en tjockare h2 */
 }     /* Hade kunnat använda (header div h1, header div h2) som selector ovan och endast ändrat font-family och font-size för (header div h2) under men det 
 hade inte blivit lika tydligt för läsaren som att dela upp det */
 
@@ -102,6 +115,13 @@ header div hr {
     margin: 0.1vh 0.3vw;
     width: 40vmin; /* Se till att fixa detta också med h1 och h2 så att denna inte blir för lång i jämförelse med dem */
     border-radius: 2vmax;
+}
+
+header div:last-of-type {
+    text-align: center;
+    font-family: var(--body-font-family);
+    font-size:1.2rem;
+    font-weight: 600;
 }
 
 main.nav_flexgrid {
@@ -155,3 +175,9 @@ höj då också vh, vw och vmax/vmin i den media quieries för items inuti*/
 
 /* Istället för att använda dina ikoner till rubriker osv tar du ikoner från material.io och
 använder animated icons för att göra riktigt snygga animations när man klickar på dem typ */
+
+
+/* Om du inte använder ett enda grid så bör du någonstans i koden/i dokumentationen motivera varför
+du valt att inte använda dig av grids. (Koppla det till ditt flexbox-system och att det
+fungerar att hela responsitivtetsystemet bygger på flexbox. Eftersom ett grid-system
+går att ersättas av en flexbox på ett effektivt sätt fungerar det därför bättre osv) */

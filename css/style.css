@@ -30,6 +30,10 @@ body {
     align-items: center;
 }
 
+i {
+    color: var(--text-color);
+}
+
 .status_bar {
     flex: 0.2 0.2 auto;
     display: flex;
@@ -41,6 +45,11 @@ body {
    /* min-height: 20px;
     max-height: 40px; */
 }
+
+.statusicons {
+    font-size: 2vh;
+}
+
 
 header {
     flex: 1 1 auto;
@@ -55,7 +64,9 @@ header {
 }
 
 button.small {
-  /*  display: inline-block; */
+    display: flex;
+    justify-content: center;
+    align-items: center; 
     height: 5.5vmax;
     width: 5.5vmax;
     cursor: pointer;
@@ -69,7 +80,7 @@ button#aboutus {
     text-align: center;
     color: inherit;
     font-family: var(--body-font-family);
-    font-size: 1.8vmax;
+    font-size: 1.5vmax;
     line-height: 1.8vmax; 
     font-weight: 600;
 }
@@ -125,23 +136,48 @@ header div hr {
     font-weight: 600;
 } */
 
-main.nav_flexgrid {
+main.flexgrid {
     flex: 3 3 auto;
     display: flex;
-    width: 80%; /* ev ändra till vw */
+    justify-content: center;
+    width: 100%; /* ev ändra till vw */
    /* min-height: 300px;
     max-height: 500px; */
     flex-flow: row wrap;
+}
+
+nav.navgrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(4, 1fr);
+    grid-column-gap: 30vw; /* ev ändra till vmax och vmin (denna property och den under) */
+    grid-row-gap: 5vh; /* Ta vid här och fortsätt bygga griddet */
+}
+
+.navgrid div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Might be unneccesary */
+    align-items: center; /* same as above */
+}
+
+button.large {
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    height: 9vmax;
+    width: 9vmax;
+    cursor: pointer;
+    border-radius: 50%;
+    margin: 1vmax 0 1vmax;
+    border: 0.3vmax solid var(--text-color);
+    background-color: var(--button-bg-color);
 }
 
 footer {
     display: none;
     width: 100%; /* ev ändra till vw */
     flex: 0.5 0.5 auto;
-}
-
-.statusicons {
-    font-size: 2vh;
 }
 
 

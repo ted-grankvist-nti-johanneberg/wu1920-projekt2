@@ -144,14 +144,16 @@ main.flexgrid {
    /* min-height: 300px;
     max-height: 500px; */
     flex-flow: row wrap;
-}
+    padding: 2vh 0;  /* Ändra i desktopdesign */
+} /* Ta vid här och fixa alla ikoner till knapparna men fixa också höjdmarginalerna mellan header och längst ner på sidan, så att det blir lika längder. */
+
 
 nav.navgrid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: repeat(4, 1fr);
     grid-column-gap: 30vw; /* ev ändra till vmax och vmin (denna property och den under) */
-    grid-row-gap: 5vh; /* Ta vid här och fortsätt bygga griddet */
+    grid-row-gap: 5vh; 
 }
 
 .navgrid div {
@@ -159,19 +161,24 @@ nav.navgrid {
     flex-direction: column;
     justify-content: center; /* Might be unneccesary */
     align-items: center; /* same as above */
+    font-family: var(--body-font-family);
 }
 
 button.large {
     display: flex;
     justify-content: center;
     align-items: center; 
-    height: 9vmax;
-    width: 9vmax;
+    height: 9.5vmax;
+    width: 9.5vmax;
     cursor: pointer;
     border-radius: 50%;
     margin: 1vmax 0 1vmax;
     border: 0.3vmax solid var(--text-color);
     background-color: var(--button-bg-color);
+}
+
+h3 {
+    font-size: 1.2rem;
 }
 
 footer {
@@ -221,5 +228,3 @@ går att ersättas av en flexbox på ett effektivt sätt fungerar det därför b
 
 
 /* Vissa problem font-size problem kan lösas genom att använda en font size med vmax istället för vmin. */
-
-/* Randomasscomment */

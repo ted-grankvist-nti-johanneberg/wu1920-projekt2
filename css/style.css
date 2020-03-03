@@ -22,8 +22,8 @@
 
 body {
     display: flex;
-    width: 100%; /* ev ändra till vw */
-    height: 100%; /* ev ändra till vh */
+    width: 100%; 
+    height: 100vh; /* ev ändra till %, om det inte fungerar på de andra sidorna, även om det blir konstigt på desktopsidan. */
     flex-direction: column;
     background-color: var(--bg-color);
     justify-content: space-between;
@@ -35,7 +35,7 @@ i {
 }
 
 .status_bar {
-    flex: 0.2 0.2 auto;
+    flex: 0.1 0.1 auto;
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
@@ -55,13 +55,18 @@ header {
     flex: 1 1 auto;
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap; /* might be dangerous */
     background-color: var(--header-bg-color);
     width: 100%; /*ev ändra till vw */
    /* min-height: 100px;
     max-height: 150px;*/
     justify-content: space-around; /* ev byt till space-between */
     align-items: center;
-}
+} /* Skapa en design där header är fixed på desktop och status-baren inte finns, Lägg också till en scroll indicator på desktop i desktop (referera till klassen i html i en media quiere, tutorial: https://www.w3schools.com/howto/howto_js_scroll_indicator.asp */
+
+/* div.progress_container {
+    flex: 0.1 0.1 auto;
+}  Lägg denna along med andra properties i media quierien */
 
 button.small {
     display: flex;
@@ -74,6 +79,7 @@ button.small {
     margin: 1vmax 0 1vmax;
     border: 0.1vmax solid var(--text-color);
     background-color: var(--button-bg-color);
+    transition: 400ms;
 }
 
 button#aboutus {
@@ -91,7 +97,7 @@ button.flag {
     background-size: 5.4vmax 5.4vmax;
 }
 
-header div:first-of-type {
+header div:first-of-type { 
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -143,10 +149,30 @@ main.flexgrid {
     width: 100%; /* ev ändra till vw */
    /* min-height: 300px;
     max-height: 500px; */
-    flex-flow: row wrap;
     padding: 2vh 0;  /* Ändra i desktopdesign */
 } /* Ta vid här och fixa alla ikoner till knapparna men fixa också höjdmarginalerna mellan header och längst ner på sidan, så att det blir lika längder. */
 
+main.container {
+    flex: 3 3 auto;
+    display: flex;
+    justify-content: center;
+    width: 100%; /* ev ändra till vw */
+    padding: 4vh 0;  /* Ändra i desktopdesign */
+} 
+
+article.ljudljus {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* gör så att allt centreras vertikal ( i mitten av mobilen) */
+    justify-content: center; /* Gör så att allt centreras mot mitten av viewporten, alltså att det dras mot mittpunkten, byt ev denna till flex-start eller space-around/between/evenly */
+    background-color: var(--bg-color);
+    border-radius: 2vmin;
+    box-shadow: 1vmin 1vmin 2vmin #bbcfda, -0.5vmin -0.5vmin 2vmin var(--light-shadow-color);
+    width: 100px; 
+    height: 200px;
+    transition: all 400ms;
+    /* Ta bort width och height värden så att de anpassar sig efter content istället. */
+}
 
 nav.navgrid {
     display: grid;
@@ -175,6 +201,7 @@ button.large {
     margin: 1vmax 0 1vmax;
     border: 0.3vmax solid var(--text-color);
     background-color: var(--button-bg-color);
+    transition: all 400ms;
 }
 
 h3 {

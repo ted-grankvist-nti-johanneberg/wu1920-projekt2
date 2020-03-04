@@ -35,7 +35,7 @@ i {
 }
 
 .status_bar {
-    flex: 0.1 0.1 auto;
+    flex: 0.01 0.01 auto;
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
@@ -52,7 +52,7 @@ i {
 
 
 header {
-    flex: 1 1 auto;
+    flex: 0.15 0.15 auto;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap; /* might be dangerous */
@@ -64,9 +64,21 @@ header {
     align-items: center;
 } /* Skapa en design där header är fixed på desktop och status-baren inte finns, Lägg också till en scroll indicator på desktop i desktop (referera till klassen i html i en media quiere, tutorial: https://www.w3schools.com/howto/howto_js_scroll_indicator.asp */
 
-/* div.progress_container {
+ .progress-container {
     flex: 0.1 0.1 auto;
-}  Lägg denna along med andra properties i media quierien */
+    position: sticky;
+    top: 0;
+    width: 100%;
+    background: var(--bg-color);
+    height: 0.5vh;
+    z-index: 99;
+} /* Lägg denna along med andra properties i media quierien */
+
+.progress-bar {
+    background:var(--text-color);
+    width: 0%;
+    height: 0.5vh;
+}
 
 button.small {
     display: flex;
@@ -110,7 +122,7 @@ header div:first-of-type {
 /* Ändra storlek på h1 och h2 i divven */
 
 header div h1 {
-    display: inline-block;
+    display: inline;
     font-family: var(--h1-font-family);
     font-size: 2rem;
     font-weight: bold;
@@ -118,7 +130,7 @@ header div h1 {
 }
 
 header div h2 {
-    display: inline-blocK;
+    display: inline-block;
     font-family: var(--body-font-family);
     font-size: 1.6rem;
     font-weight: 800;
@@ -166,10 +178,9 @@ article.ljudljus {
     align-items: center; /* gör så att allt centreras vertikal ( i mitten av mobilen) */
     justify-content: center; /* Gör så att allt centreras mot mitten av viewporten, alltså att det dras mot mittpunkten, byt ev denna till flex-start eller space-around/between/evenly */
     background-color: var(--bg-color);
-    border-radius: 2vmin;
+    border-radius: 4vmin;
     box-shadow: 1vmin 1vmin 2vmin #bbcfda, -0.5vmin -0.5vmin 2vmin var(--light-shadow-color);
-    width: 100px; 
-    height: 200px;
+    width: 70vw; 
     transition: all 400ms;
     /* Ta bort width och height värden så att de anpassar sig efter content istället. */
 }
@@ -215,6 +226,16 @@ footer {
 }
 
 
+
+/* @keyframes shimmer {
+    0% {
+      background-position: top left;
+    }
+    100% {
+      background-position: top right;
+    }
+  }
+EV fixa till denna effekten senare, om det inte fungerar så ta bort denna keyframe */
 /* min nuvarande idé är att ha en fulltäckande body som är en flexbox
 med avseende på y/vertikal/ enkolumnig och bodyn skall bero på viewporten
 och fylla hela och om viewporten förändras kommer även itemsen i växa/minska
@@ -255,3 +276,10 @@ går att ersättas av en flexbox på ett effektivt sätt fungerar det därför b
 
 
 /* Vissa problem font-size problem kan lösas genom att använda en font size med vmax istället för vmin. */
+
+
+/* Glöm inte att i slutet testa din hemsida på chrome, safari, firefox mm (se kunskapskrav för vilka)
+Glöm inte heller att validera med "validator.w3.org" eller liknande för att se vad för 
+saker du kan behöva fixa, men detta behöver du en live-server till (får fixa på lektion, går inte att fixa så lätt) 
+Länken ovan används till html medans denna kan användas till css: "jigsaw.w3.org/css-validator" */
+  

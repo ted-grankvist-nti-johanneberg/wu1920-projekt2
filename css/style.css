@@ -13,7 +13,7 @@
     --drk-shadow-color: #000000;
     --light-shadow-color: #FBFEF9;
     --error-bg-color: #FF7400;
-    --body-font-size: 1.2vmin; /* vmin använder antingen 1.5vh eller 1.5vw beroende på vilken av sidorna som är kortast */
+    --body-font-size: 3vmin; /* vmin använder antingen 1.5vh eller 1.5vw beroende på vilken av sidorna som är kortast */
     --h1-font-family: 'Limelight', Verdana, Helvetica;
     --body-font-family: 'Open Sans', sans-serif, Arial;
     color: var(--text-color);
@@ -105,8 +105,8 @@ button#aboutus {
 
 button.flag {
     background-color: transparent; /* För att jag är paranoid */
-    background-image: url("../img/englandflag3.webp");
-    background-size: 5.4vmax 5.4vmax;
+    background: url("../img/imagesprite.jpg") center top no-repeat;
+    background-size: 10.6vmax 10.6vmax; 
 }
 
 header div:first-of-type { 
@@ -169,20 +169,38 @@ main.container {
     display: flex;
     justify-content: center;
     width: 100%; /* ev ändra till vw */
-    padding: 4vh 0;  /* Ändra i desktopdesign */
+    padding: 4vh 0;  /* Ev ändra till vmin. Ändra i desktopdesign */
 } 
 
-article.ljudljus {
+article.block {
     display: flex;
     flex-direction: column;
     align-items: center; /* gör så att allt centreras vertikal ( i mitten av mobilen) */
-    justify-content: center; /* Gör så att allt centreras mot mitten av viewporten, alltså att det dras mot mittpunkten, byt ev denna till flex-start eller space-around/between/evenly */
+    justify-content: space-around; /* Gör så att allt centreras mot mitten av viewporten, alltså att det dras mot mittpunkten, byt ev denna till flex-start eller space-around/between/evenly */
     background-color: var(--bg-color);
     border-radius: 4vmin;
     box-shadow: 1vmin 1vmin 2vmin #bbcfda, -0.5vmin -0.5vmin 2vmin var(--light-shadow-color);
-    width: 70vw; 
+    width: 70vmin; 
+    padding: 0 6vmin;
+    padding-bottom: 3vmin;
     transition: all 400ms;
+    font-family: var(--body-font-family);
     /* Ta bort width och height värden så att de anpassar sig efter content istället. */
+}
+
+.block video {
+    background: url("../img/imagesprite.jpg") no-repeat -217px -661px;
+    background-size: cover;
+    width: 46vmin; /* ev ändra till 50vmin elr dylikt */
+    height: auto;
+    border-radius: 1.7vmin;
+    box-shadow: 1vmin 1vmin 2.5vmin var(--drk-shadow-color);
+    transition: all 400ms;
+    margin-bottom: 2vmax;
+}
+
+.block h3 {
+    align-self: flex-start;
 }
 
 nav.navgrid {
@@ -222,7 +240,16 @@ h3 {
 footer {
     display: none;
     width: 100%; /* ev ändra till vw */
-    flex: 0.5 0.5 auto;
+    flex: 0.15 0.15 auto;
+}
+
+@media screen and (min-width: 992px) {
+/* Här läggs allt för desktop version. Tänk på att ändra stolekarna till article.block */
+
+
+
+
+
 }
 
 

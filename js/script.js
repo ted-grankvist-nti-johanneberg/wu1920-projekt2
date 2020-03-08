@@ -1,5 +1,9 @@
 window.onscroll = function() {myFunction()};
+const block = document.querySelector('article.block')
 
+const tl = new TimelineMax();
+
+tl.fromTo(block,1, {width: "0vmin"}, {width: "70vmin"}) //Något fungerar inte, kolla på videon av Dev Ed igen och se ifall du gör något fel.
 
 function myFunction() {
   var winScroll = document.body.scrollTop || document.documentElement.scrollTop;

@@ -167,16 +167,19 @@ main.flexgrid {
 main.container {
     flex: 3 3 auto;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
     width: 100%; /* ev ändra till vw */
     padding: 4vh 0;  /* Ev ändra till vmin. Ändra i desktopdesign */
 } 
 
 article.block {
     display: flex;
+    flex: 1.5 1.5 auto;
     flex-direction: column;
     align-items: center; /* gör så att allt centreras vertikal ( i mitten av mobilen) */
-    justify-content: space-around; /* Gör så att allt centreras mot mitten av viewporten, alltså att det dras mot mittpunkten, byt ev denna till flex-start eller space-around/between/evenly */
+    justify-content: space-evenly; /* Gör så att allt centreras mot mitten av viewporten, alltså att det dras mot mittpunkten, byt ev denna till flex-start eller space-around/between/evenly */
     background-color: var(--bg-color);
     border-radius: 4vmin;
     box-shadow: 1vmin 1vmin 2vmin #bbcfda, -0.5vmin -0.5vmin 2vmin var(--light-shadow-color);
@@ -194,10 +197,16 @@ article.block {
     width: 46vmin; /* ev ändra till 50vmin elr dylikt */
     height: auto;
     border-radius: 1.7vmin;
-    box-shadow: 1vmin 1vmin 2.5vmin var(--drk-shadow-color);
+    box-shadow: 1vmin 1vmin 2.5vmin var(--drk-shadow-color); /* Denna property ger en vit rand utanför videoboxen mellan videobox och skuggan, vilket blir konstigt - är ju något med boxen vilken är lätt att se i inspect, men varför blir det så? */
     transition: all 400ms;
     margin-bottom: 2vmax;
+
+    /* Eventuellt förbättring här: skapa en som med Javascript onclick lägger till ett attribute för video, nämligen controls och så att 
+    den samtidigt försvinner typ - kanske tar för mycket tid 
+    https://www.w3schools.com/js/js_intro.asp
+    https://www.w3schools.com/js/js_htmldom_html.asp*/
 }
+
 
 .block h3 {
     align-self: flex-start;
@@ -242,6 +251,9 @@ footer {
     width: 100%; /* ev ändra till vw */
     flex: 0.15 0.15 auto;
 }
+
+/* https://www.youtube.com/watch?v=FK5DEa1Hvco - Använd javascripten från den videon (eventuellt också knappen) för 
+att skapa din nya knapp på desktop, där sidan då tar dig upp till start med en smooth animation istället för instant. */
 
 @media screen and (min-width: 992px) {
 /* Här läggs allt för desktop version. Tänk på att ändra stolekarna till article.block */

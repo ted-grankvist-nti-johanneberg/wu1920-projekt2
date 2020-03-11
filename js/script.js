@@ -11,13 +11,31 @@ function myFunction() {
   var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
   var scrolled = (winScroll / height) * 100;
   document.getElementById("myBar").style.width = scrolled + "%";
-  
-  if (document.body.scrollTop > 500 || document.documentElement.scrollTop > 500) {
-    document.getElementById("knapp1").style.display = "block"; /* och här */
-  } else {
-    document.getElementById("knapp1").style.display = "none"; /* Skriv här din kod för att rotera din ikon */
-  }
+
+  /* if (document.body.scrollTop > 500 || document.documentElement.scrollTop > 500) {
+    document.getElementById("knapp1").style.display = "block";  och här 
+   } else {
+    document.getElementById("knapp1").style.display = "none";  Skriv här din kod för att rotera din ikon 
+  }  */
+
 }
+
+var $arrow = $('.arrow');
+var $window = $(window);
+$win.on('scroll', function() {
+  var top = $win.scrollTop(); /* Om du ex skriver $win.scrollTop()/2; och ändrar kan du dividera och multiplicera hur snabbt den roterar typ */
+  $arrow.css('transform', 'rotate('+ top +'deg)');
+  console.log('arrowscroll');
+}); /* https://www.youtube.com/watch?v=CtebaT3VXcI WATCH THIS TUTORIAL - YOU ONLY NEED TO FIX SO THAT YOU HAVE THE RIGHT JQUERY */
+
+
+
+
+/*if (document.body.scrollTop > 500 || document.documentElement.scrollTop > 500) {
+  document.getElementById("knapp1").style.display = "block";  och här 
+ } else {
+  document.getElementById("knapp1").style.display = "none";  Skriv här din kod för att rotera din ikon 
+} */
 
 /*
 var i = 0;

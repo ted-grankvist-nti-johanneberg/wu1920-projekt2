@@ -13,9 +13,9 @@ function myFunction() {
   document.getElementById("myBar").style.width = scrolled + "%";
   
   if (document.body.scrollTop > 500 || document.documentElement.scrollTop > 500) {
-    document.getElementById("knapp1").style.display = "block";
+    document.getElementById("knapp1").style.display = "block"; /* och här */
   } else {
-    document.getElementById("knapp1").style.display = "none";
+    document.getElementById("knapp1").style.display = "none"; /* Skriv här din kod för att rotera din ikon */
   }
 }
 

@@ -197,8 +197,36 @@ article.block {
     /* Ta bort width och height värden så att de anpassar sig efter content istället. */
 }
 
+article.wifi {
+   justify-content: space-around;
+}
+
+div.wifidiv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+div.logotext {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+}
+
+div.whitebox {
+    display: block;
+    text-align: center;
+    background-color: var(--light-shadow-color);
+    padding: 1.5vmax 10vmin;
+    font-weight: 600;
+    font-size: 1.3rem; 
+    margin-top: 1vmax;
+    border-radius: 2vmin;
+    /* Inga box-shadows så att den inte ser clickable ut */
+}
+
 .block video {
-    background: url("../img/imagesprite.jpg") no-repeat -217px -661px;
+    background: url("../img/imagesprite.jpg") no-repeat -217px -661px; /* ev byt till background-color: var(--drk-shadow-color) eller black för att få bort vit rand. */
     background-size: cover;
     width: 46vmin; /* ev ändra till 50vmin elr dylikt */
     height: auto;
@@ -214,7 +242,7 @@ article.block {
 }
 
 
-.block h3 {
+.scrollstandard .block h3 {
     align-self: flex-start;
 }
 
@@ -250,6 +278,7 @@ button.large {
 
 h3 {
     font-size: 1.2rem;
+    font-weight: 750;
 }
 
 footer {

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="ljudljus">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,6 +9,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Limelight|Open+Sans:300,400,500,600,700,800,900&display=swap">
     <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
     <title>Buratino - Ljud & Ljus</title>
 </head>
 <body class="scrollstandard">
@@ -32,7 +35,7 @@
         <div>
             <h1>Buratino</h1>
             <hr>
-            <h2>Hem</h2>
+            <h2>Ljud & Ljus</h2>
         </div>
         <div>
             <button class="small">
@@ -47,7 +50,7 @@
     </div>
     <main class="container">
         <article class="block">
-            <i class="material-icons-round statusicons" style="font-size: 10vmax; margin: 1vmax 0;">
+            <i class="material-icons-round" style="font-size: 10vmax; margin: 1vmax 0;">
                 surround_sound
             </i>
             <video controls preload="auto">
@@ -58,11 +61,11 @@
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora laboriosam mollitia reiciendis nisi, error vero ipsum tempore dolorem nulla cumque aspernatur velit quis cupiditate soluta expedita! Itaque beatae maxime dolores quas officiis in veniam consequatur iusto tenetur nostrum enim ipsa illo doloribus, voluptatum magni omnis quae dignissimos quod modi sint, facilis quidem accusamus! Ducimus odit, voluptatem aliquam veniam dolorum a corporis adipisci? Nostrum ad, asperiores cum quam esse.</p>
             </div>
         </article> 
-        <i class="material-icons-round arrow" style="font-size: 9vmax; margin: 1vmax 0; z-index: 0">
+        <i id="arrow" class="material-icons-round" style="font-size: 9vmax; margin: 1vmax 0; z-index: 0">
                 keyboard_arrow_down
         </i>
         <article class="block">
-            <i class="material-icons-round statusicons" style="font-size: 10vmax; margin: 1.7vmax 0;">
+            <i class="material-icons-round" style="font-size: 10vmax; margin: 1.7vmax 0;">
                 wb_incandescent
             </i>
             <video controls preload="auto">
@@ -75,7 +78,7 @@
         </article>    
     </main>
     <footer></footer>
-    <script defer src="js/jquery-3.3.1.min.js"></script>
+
     <script type="text/javascript" src="js/script.js"></script>
 </body>
 </html>

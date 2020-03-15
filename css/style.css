@@ -34,6 +34,10 @@ body {
     align-items: center;
 }
 
+.scrollstandard {
+    height: 100%;
+}
+
 i {
     color: var(--text-color);
 }
@@ -213,6 +217,10 @@ div.logotext {
     align-items: center;
 }
 
+.logotext h3 {
+    font-size: 1.5rem;
+}
+
 div.whitebox {
     display: block;
     text-align: center;
@@ -241,6 +249,15 @@ div.whitebox {
     https://www.w3schools.com/js/js_htmldom_html.asp*/
 }
 
+#arrow.animate1 {
+    animation: half-spin1 1s ease-in-out 0s 1 alternate;
+    animation-fill-mode: forwards;
+}
+
+#arrow.animate2 {
+    animation: half-spin2 1s ease-in-out 0s 1 alternate;
+    animation-fill-mode: forwards;
+}
 
 .scrollstandard .block h3 {
     align-self: flex-start;
@@ -287,17 +304,62 @@ footer {
     flex: 0.15 0.15 auto;
 }
 
+@keyframes half-spin1 { 
+    from { 
+        transform: rotate(0deg); 
+    } to { 
+        transform: rotate(180deg); 
+    }
+}
+
+@keyframes half-spin2 { 
+    from { 
+        transform: rotate(180deg); 
+    } to { 
+        transform: rotate(360deg); 
+    }
+}
+
+/* @-ms-keyframes spin { 
+    from { 
+        -ms-transform: rotate(0deg); 
+    } to { 
+        -ms-transform: rotate(180deg); 
+    }
+}
+@-moz-keyframes spin { 
+    from { 
+        -moz-transform: rotate(0deg); 
+    } to { 
+        -moz-transform: rotate(180deg); 
+    }
+}
+@-webkit-keyframes spin { 
+    from { 
+        -webkit-transform: rotate(0deg); 
+    } to { 
+        -webkit-transform: rotate(180deg); 
+    }
+} */
+
 /* https://www.youtube.com/watch?v=FK5DEa1Hvco - Använd javascripten från den videon (eventuellt också knappen) för 
 att skapa din nya knapp på desktop, där sidan då tar dig upp till start med en smooth animation istället för instant. */
 
-@media screen and (min-width: 992px) {
-/* Här läggs allt för desktop version. Tänk på att ändra stolekarna till article.block */
-
-
-
-
+@media screen and (min-width: 768px) {
+    .block p {
+        font-size: 0.84rem;
+    }
 
 }
+
+
+
+@media screen and (min-width: 992px) { /* Ev byt till 1025px då ipad pro har 1024px bredd */
+/* Här läggs allt för desktop version. Tänk på att ändra stolekarna till article.block */
+
+}
+
+
 
 
 
@@ -350,6 +412,9 @@ går att ersättas av en flexbox på ett effektivt sätt fungerar det därför b
 
 
 /* Vissa problem font-size problem kan lösas genom att använda en font size med vmax istället för vmin. */
+
+/* IDE TILL DESKTOPSIDAN: GÖR ETT GRID DÄR DU ANIMATAR GRID-AREAS ALTERNATIVT ANIMATAR ORDER PÅ EN FLEXBOX 
+OCH SE IFALL DU KAN FÅ BOXAR ATT ÅKA RUNT I ETT GRID SYSTEM MED KEYFRAMES OSV, TYP SKAPA EN KNAPP som man klickar på */
 
 
 /* Glöm inte att i slutet testa din hemsida på chrome, safari, firefox mm (se kunskapskrav för vilka)

@@ -20,13 +20,38 @@ function myFunction() {
 
 }
 
-var $arrow = $('.arrow');
+
+var lastScrollTop = 0;
+$(function () {
+  var element = $("#arrow");
+  $(window).scroll(function () {
+    if($(window).scrollTop() > 20) {
+      element.addClass("animate1");
+    }
+    else {
+      element.removeClass("animate1");
+    }
+
+    if($(window).scrollTop() < 30) {
+      element.addClass("animate2");
+    }
+    else {
+      element.removeClass("animate2");
+    }
+
+  });
+}); 
+
+/*var hchange = (document.getElementsByClassName('container').offsetHeight)*0.01 ;   ---> en variabel för att använda i funktionen ovan, till när fuktionen skall aktiveras */
+
+
+/*var $arrow = $('.arrow');
 var $window = $(window);
 $win.on('scroll', function() {
-  var top = $win.scrollTop(); /* Om du ex skriver $win.scrollTop()/2; och ändrar kan du dividera och multiplicera hur snabbt den roterar typ */
+  var top = $win.scrollTop();  "Om du ex skriver $win.scrollTop()/2; och ändrar kan du dividera och multiplicera hur snabbt den roterar typ"        
   $arrow.css('transform', 'rotate('+ top +'deg)');
   console.log('arrowscroll');
-}); /* https://www.youtube.com/watch?v=CtebaT3VXcI WATCH THIS TUTORIAL - YOU ONLY NEED TO FIX SO THAT YOU HAVE THE RIGHT JQUERY */
+}); */  /* https://www.youtube.com/watch?v=CtebaT3VXcI WATCH THIS TUTORIAL - YOU ONLY NEED TO FIX SO THAT YOU HAVE THE RIGHT JQUERY */
 
 
 

@@ -304,6 +304,25 @@ footer {
     flex: 0.15 0.15 auto;
 }
 
+/* .swal2-popup {
+    font-family: var(--body-font-family);
+}
+
+.swal2-popup .swal2-title {
+    color: var(--text-color);
+    font-size: 2rem;
+} - lyssnar ändå inte på dessa attribut ... */
+
+
+
+/*div.errormessage {
+    display: none;
+    z-index: 200;
+
+
+    
+} */
+
 @keyframes half-spin1 { 
     from { 
         transform: rotate(0deg); 
@@ -319,6 +338,8 @@ footer {
         transform: rotate(360deg); 
     }
 }
+
+
 
 /* @-ms-keyframes spin { 
     from { 
@@ -421,4 +442,9 @@ OCH SE IFALL DU KAN FÅ BOXAR ATT ÅKA RUNT I ETT GRID SYSTEM MED KEYFRAMES OSV,
 Glöm inte heller att validera med "validator.w3.org" eller liknande för att se vad för 
 saker du kan behöva fixa, men detta behöver du en live-server till (får fixa på lektion, går inte att fixa så lätt) 
 Länken ovan används till html medans denna kan användas till css: "jigsaw.w3.org/css-validator" */
+
+/* Sidan för säkringar tenderar att bli konstig i preview mode för ipad, men det är endast en bugg som uppstår ibland och om man kollar
+ser man att width är densamma som på ex ljudljus osv och att textstorlek och all annan content inte varierar i bredd => fel på webbläsarvyn, och därför
+har jag visat när det fungerar här: https://gyazo.com/0283fd8989bea5fb5b12768eadc851ad
+Detsamma gäller för Wi-Fi sidan: https://gyazo.com/d4ca7293abb240dbc5bd02cf8cd4a142 */
   

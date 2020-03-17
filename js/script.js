@@ -20,6 +20,15 @@ function myFunction() {
 
 }
 
+/* function erroranimation() {
+
+  
+}
+
+function error_return() {
+
+} */
+
 
 var lastScrollTop = 0;
 $(function () {
@@ -41,6 +50,14 @@ $(function () {
 
   });
 }); 
+
+$(document).on('click', '.error', function(e) {
+  swal(
+    'Fel!',
+    'Knappens funktion finns inte än.',
+    'error',
+  )
+});
 
 /*var hchange = (document.getElementsByClassName('container').offsetHeight)*0.01 ;   ---> en variabel för att använda i funktionen ovan, till när fuktionen skall aktiveras */
 

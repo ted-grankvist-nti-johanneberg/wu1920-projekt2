@@ -420,6 +420,7 @@ att skapa din nya knapp på desktop, där sidan då tar dig upp till start med e
 
     button.small {
         border-radius: 20%;
+        border: 0.15vmax solid var(--text-color);
     }
 
     button.large {
@@ -500,7 +501,7 @@ att skapa din nya knapp på desktop, där sidan då tar dig upp till start med e
     footer {
         display: flex;
         flex: 0.15 0.15 auto;
-    } 
+    } /* Ta bort footer i alla html dokument */
 }
     
 

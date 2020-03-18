@@ -20,14 +20,60 @@ function myFunction() {
 
 }
 
-/* function erroranimation() {
-
-  
+function changetoindex() {
+  window.location.href='index.html';
 }
 
-function error_return() {
+function changetowifi() {
+  window.location.href='wifi.html';
+}
 
-} */
+function changetosakringar() {
+  window.location.href='sakringar.html';
+}
+
+function changetoljudljus() {
+  window.location.href='ljudljus.html';
+}
+
+function changetolarmlas() {
+  window.location.href='larmlas.html';
+}
+
+function fadetoindex() {
+  var fullpage = $(".fadeclass");
+  fullpage.addClass("pagefade");
+  setTimeout(changetoindex, 700);
+}
+
+function fadetowifi() {
+  var fullpage = $(".fadeclass");
+  fullpage.addClass("pagefade");
+  setTimeout(changetowifi, 700);
+}
+
+function fadetoljudljus() {
+  var fullpage = $(".fadeclass");
+  fullpage.addClass("pagefade");
+  setTimeout(changetoljudljus, 700);
+}
+
+function fadetolarmlas() {
+  var fullpage = $(".fadeclass");
+  fullpage.addClass("pagefade");
+  setTimeout(changetolarmlas, 700);
+}
+
+function fadetosakringar() {
+  var fullpage = $(".fadeclass");
+  fullpage.addClass("pagefade");
+  setTimeout(changetosakringar, 700);
+}
+
+
+
+
+
 
 
 var lastScrollTop = 0;
@@ -52,11 +98,13 @@ $(function () {
 }); 
 
 $(document).on('click', '.error', function(e) {
-  swal(
-    'Fel!',
-    'Knappens funktion finns inte än.',
-    'error',
-  )
+  swal({
+    type: 'error',
+    title: "Fel!",
+    text: "Knappens funktion finns inte än.",
+    button: "OK"
+    
+})
 });
 
 /*var hchange = (document.getElementsByClassName('container').offsetHeight)*0.01 ;   ---> en variabel för att använda i funktionen ovan, till när fuktionen skall aktiveras */

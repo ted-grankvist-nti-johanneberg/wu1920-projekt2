@@ -8,16 +8,11 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Limelight|Open+Sans:300,400,500,600,700,800,900&display=swap">
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-    <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.2.0/sweetalert2.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.2.0/sweetalert2.all.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
     <title>Buratino - Ljud & Ljus</title>
 </head>
-<body class="scrollstandard">
+<body class="scrollstandard fadeclass">
     <div class="status_bar">
         <i class="material-icons statusicons" style="margin: 0.1vh 0.1vw; font-size: 2.9vh;">
             stop
@@ -30,7 +25,7 @@
         </i>
     </div>
     <header>
-        <button class="small">
+        <button onclick="fadetoindex()" class="small">
             <i class="material-icons-round" style="font-size: 4.5vmax;">
                 arrow_back
             </i>
@@ -53,7 +48,7 @@
     </div>
     <main class="container">
         <article class="block">
-            <i class="material-icons-round" style="font-size: 10vmax; margin: 1vmax 0;">
+            <i class="material-icons-round standarddesk" style="font-size: 10vmax; margin: 1vmax 0;">
                 surround_sound
             </i>
             <video controls preload="auto">
@@ -68,7 +63,7 @@
                 keyboard_arrow_down
         </i>
         <article class="block">
-            <i class="material-icons-round" style="font-size: 10vmax; margin: 1.7vmax 0;">
+            <i class="material-icons-round standarddesk" style="font-size: 10vmax; margin: 1.7vmax 0;">
                 wb_incandescent
             </i>
             <video controls preload="auto">
@@ -81,7 +76,11 @@
         </article>    
     </main>
     <footer></footer>
-
+    <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.2.0/sweetalert2.all.min.js"></script>
     <script type="text/javascript" src="js/script.js"></script>
 </body>
 </html>

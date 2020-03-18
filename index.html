@@ -9,13 +9,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Limelight|Open+Sans:300,400,500,600,700,800,900&display=swap">
     <link rel="stylesheet" href="https://unpkg.com/simplebar@latest/dist/simplebar.css">
-    <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.2.0/sweetalert2.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.2.0/sweetalert2.all.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
     <title>Buratino - Hem</title>
 </head>
-<body class="noscroll">
+<body class="noscroll fadeclass">
     <div class="status_bar">
         <i class="material-icons statusicons" style="margin: 0.1vh 0.1vw; font-size: 2.9vh;">
             stop
@@ -40,10 +38,10 @@
             </button>
         </div>
     </header>
-    <main class="flexgrid">
+    <main class="flexgrid"> <!-- Förklara sedan i dokumentationen varför du har en container som är en flexbox som håller inne en navgrid-->
         <nav class="navgrid">
             <div>
-                <button class="large">
+                <button onclick="fadetolarmlas()"class="large">
                     <i class="material-icons-round" style="font-size: 7vmax;">
                         house
                     </i>
@@ -51,7 +49,7 @@
                 <h3>Larm & Lås</h3>
             </div>
             <div>
-                <button class="large">
+                <button onclick="fadetowifi()" class="large">
                     <i class="material-icons-round" style="font-size: 7vmax;">
                         wifi
                     </i>
@@ -59,7 +57,7 @@
                 <h3>Wi-Fi</h3>
             </div>
             <div>
-                <button class="large">
+                <button onclick="fadetoljudljus()" class="large">
                     <i class="material-icons-round" style="font-size: 6.5vmax;">
                         surround_sound
                     </i>
@@ -67,7 +65,7 @@
                 <h3>Ljud & Ljus</h3>
             </div>
             <div>
-                <button class="large">
+                <button onclick="fadetosakringar()" class="large">
                     <i class="material-icons-round" style="font-size: 7vmax;">
                         offline_bolt
                     </i>
@@ -109,6 +107,8 @@
         </nav>
     </main>
     <footer></footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.2.0/sweetalert2.all.min.js"></script>
     <script type="text/javascript" src="js/script.js"></script>
     <script src="https://unpkg.com/simplebar@latest/dist/simplebar.min.js"></script>
 </body>

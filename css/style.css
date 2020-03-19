@@ -11,6 +11,12 @@
 
 :root {
     font-size: 3vmin;
+    --elevation-light1: 0 1px 1.5px 0px rgba(0, 0, 0, 0.12), 0 1px 1px 0 rgba(0, 0, 0, 0.24);
+    --elevation-light15: 0 1.2px 2px 0px rgba(0, 0, 0, 0.16), 0 2px 2px 0 rgba(0, 0, 0, 0.23);
+    --elevation-light2: 0 1.5px 3px 0px rgba(0, 0, 0, 0.16), 0 3px 3px 0 rgba(0, 0, 0, 0.23);
+    --elevation-light25: 0 5px 5px 0px rgba(0, 0, 0, 0.16), 0 5px 5px 0 rgba(0, 0, 0, 0.23);
+    --elevation-light3: 0 10px 10px 0px rgba(0, 0, 0, 0.19), 0 6px 3px 0 rgba(0, 0, 0, 0.23);
+    --elevation-light35: 0 11px 10px 0px rgba(0, 0, 0, 0.19), 0 10px 4px 0 rgba(0, 0, 0, 0.23);
     --header-bg-color:#9C0000;
     --bg-color: #E1E2E1;
     --button-bg-color: #D60000;
@@ -34,6 +40,67 @@ body {
     align-items: center;
 }
 
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 100; /* Sit on top */
+    padding-top: 5vh; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    font-family: var(--body-font-family);
+}
+  
+
+.modal-content {
+    position: relative;
+    background-color: var(--bg-color);
+    margin: auto;
+    padding: 0;
+    border: 0.7vmin outset var(--text-color);
+    width: 60vmin;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s;
+}
+
+.close {
+    color: white;
+    float: right;
+    font-size: 10vmin;
+    font-weight: bold;
+    order: 2;
+}
+  
+.close:hover, .close:focus {
+    color: var(--text-color);
+    text-decoration: none;
+    cursor: pointer;
+}
+  
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 4.5vmin;
+    background-color: var(--button-bg-color);
+    color: var(--text-color);
+    -webkit-box-shadow: inset 0px 0px 10px 0px rgba(0,0,0,1);
+    -moz-box-shadow: inset 0px 0px 10px 0px rgba(0,0,0,1);
+    box-shadow: inset 0px 0px 10px 0px rgba(0,0,0,1);
+}
+  
+.modal-body {
+    padding: 2vmax 4.5vmin;
+    
+}
+
 .pagefade {
     animation: fadeblack 0.6s ease-in-out 0s 1 normal;
     animation-fill-mode: forwards;
@@ -54,7 +121,11 @@ i {
     justify-content: flex-end;
     align-items: center;
     background: radial-gradient(circle, rgba(226,225,225,1) 0%, rgba(214,0,0,1) 100%);
-    width: 100%; /*ev ändra till vw */
+    width: 100%;
+    -webkit-box-shadow: inset 0px -47px 16px -56px rgba(0,0,0,1);
+    -moz-box-shadow: inset 0px -47px 16px -56px rgba(0,0,0,1);
+    box-shadow: inset 0px -47px 16px -56px rgba(0,0,0,1);
+
    /* min-height: 20px;
     max-height: 40px; */
 }
@@ -74,6 +145,9 @@ header {
     max-height: 150px;*/
     justify-content: space-around; /* ev byt till space-between */
     align-items: center;
+    -webkit-box-shadow: inset 0px 0px 5px 0px rgba(0,0,0,1);
+    -moz-box-shadow: inset 0px 0px 5px 0px rgba(0,0,0,1);
+    box-shadow: inset 0px 0px 5px 0px rgba(0,0,0,1);
 } /* Skapa en design där header är fixed på desktop och status-baren inte finns, Lägg också till en scroll indicator på desktop i desktop (referera till klassen i html i en media quiere, tutorial: https://www.w3schools.com/howto/howto_js_scroll_indicator.asp */
 
 .progress-container {
@@ -105,6 +179,7 @@ button.small {
     border: 0.1vmax solid var(--text-color);
     background-color: var(--button-bg-color);
     transition: 400ms;
+    box-shadow: var(--elevation-light1);
 }
 
 button#aboutus {
@@ -296,16 +371,24 @@ button.large {
     border: 0.3vmax solid var(--text-color);
     background-color: var(--button-bg-color);
     transition: all 400ms;
+    box-shadow: var(--elevation-light2);
+}
+
+button:hover {
+    transform: scale(1.1);
+}
+
+button.small:hover {
+    box-shadow: var(--elevation-light15);
+}
+
+button.large:hover {
+    box-shadow: var(--elevation-light25);
 }
 
 h3 {
     font-size: 1.2rem;
     font-weight: 750;
-}
-
-footer {
-    display: none;
-    width: 100%; /* ev ändra till vw */
 }
 
 .swal2-popup {
@@ -356,12 +439,18 @@ footer {
         background-color: var(--bg-color);
     }
     50% {
-        background-color: black;
+        background-color: var(--text-color);
     }
     100% {
         background-color: var(--bg-color);
     }
 }
+
+@keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+}
+  
 
 
 
@@ -414,6 +503,12 @@ att skapa din nya knapp på desktop, där sidan då tar dig upp till start med e
         display: none;
     }
 
+    header {
+        -webkit-box-shadow: inset 0px 0px 10px 0px rgba(0,0,0,1);
+        -moz-box-shadow: inset 0px 0px 10px 0px rgba(0,0,0,1);
+        box-shadow: inset 0px 0px 10px 0px rgba(0,0,0,1);
+    }
+
     header div:first-of-type {
         margin: 1.5vmax 0 0.6vmax;
     }
@@ -421,10 +516,20 @@ att skapa din nya knapp på desktop, där sidan då tar dig upp till start med e
     button.small {
         border-radius: 20%;
         border: 0.15vmax solid var(--text-color);
+        box-shadow: var(--elevation-light2);
     }
 
     button.large {
         border-radius: 20%;
+        box-shadow: var(--elevation-light3);
+    }
+
+    button.small:hover {
+        box-shadow: var(--elevation-light25);
+    }
+    
+    button.large:hover {
+        box-shadow: var(--elevation-light35);
     }
 
     nav.navgrid {
@@ -497,11 +602,6 @@ att skapa din nya knapp på desktop, där sidan då tar dig upp till start med e
     .block p {
         font-size: 0.75rem;
     }
-
-    footer {
-        display: flex;
-        flex: 0.15 0.15 auto;
-    } /* Ta bort footer i alla html dokument */
 }
     
 
@@ -570,4 +670,3 @@ Länken ovan används till html medans denna kan användas till css: "jigsaw.w3.
 ser man att width är densamma som på ex ljudljus osv och att textstorlek och all annan content inte varierar i bredd => fel på webbläsarvyn, och därför
 har jag visat när det fungerar här: https://gyazo.com/0283fd8989bea5fb5b12768eadc851ad
 Detsamma gäller för Wi-Fi sidan: https://gyazo.com/d4ca7293abb240dbc5bd02cf8cd4a142 */
-  

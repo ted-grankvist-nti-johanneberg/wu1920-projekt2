@@ -14,6 +14,17 @@
     <title>Buratino - Hem</title>
 </head>
 <body class="noscroll fadeclass">
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+          <div class="modal-header">
+            <span class="close">&times;</span>
+            <h3>Om Oss</h3>
+          </div>
+          <div class="modal-body">
+            <p>Buratino är en centralt belägen teater & festlokal i en fristående fastighet vid Munkebäckstorget. <br><br> Vår vision för Buratino är att skapa en vacker, funktionell och attraktiv mötesplats som skulle passa de mindre grupperna utan att ge avkall på känsla, utrustning och klass. Med en renoverad originalscen från 50-talet. Salen är smakfullt renoverad i äldre stil med medaljongtapeter i rött, grönt och guld.</p>
+          </div>
+        </div>
+    </div>
     <div class="status_bar">
         <i class="material-icons statusicons" style="margin: 0.1vh 0.1vw; font-size: 2.9vh;">
             stop
@@ -33,7 +44,7 @@
             <h2>Hem</h2>
         </div>
         <div>
-            <button  class="small error" id="aboutus">
+            <button onclick="modalactivate()" class="small" id="aboutus">
                 Om Oss
             </button>
         </div>
@@ -41,7 +52,7 @@
     <main class="flexgrid"> <!-- Förklara sedan i dokumentationen varför du har en container som är en flexbox som håller inne en navgrid-->
         <nav class="navgrid">
             <div>
-                <button onclick="fadetolarmlas()"class="large">
+                <button onclick="fadetolarmlas()" class="large">
                     <i class="material-icons-round" style="font-size: 7vmax;">
                         house
                     </i>
@@ -106,7 +117,6 @@
             </div>
         </nav>
     </main>
-    <footer></footer>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.2.0/sweetalert2.all.min.js"></script>
     <script type="text/javascript" src="js/script.js"></script>

@@ -13,6 +13,18 @@
     <title>Buratino - Larm & Lås</title>
 </head>
 <body class="scrollstandard fadeclass">
+    <div id="myModal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+          <div class="modal-header">
+            <span class="close">&times;</span>
+            <h3>Hjälpruta</h3>
+          </div>
+          <div class="modal-body">
+            <p>Om larmet eller låsen inte fungerar kan du kontakta oss på numret 11-1111-11. <br> <br> Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem quam maxime, in at non reprehenderit qui tempora nemo odit porro repellendus ab dolor adipisci eveniet aspernatur velit libero voluptatem necessitatibus?</p>
+          </div>
+        </div>
+    </div>
     <div class="status_bar">
         <i class="material-icons statusicons" style="margin: 0.1vh 0.1vw; font-size: 2.9vh;">
             stop
@@ -36,7 +48,7 @@
             <h2>Larm & Lås</h2>
         </div>
         <div>
-            <button class="small error">
+            <button onclick="modalactivate()" class="small">
                 <i class="material-icons-round" style="font-size: 4.4vmax;">
                     help
                 </i>
@@ -75,7 +87,6 @@
             </div>
         </article>    
     </main>
-    <footer></footer>
     <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://code.jquery.com/jquery-2.1.4.js"></script>

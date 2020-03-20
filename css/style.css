@@ -4,11 +4,6 @@
     box-sizing: border-box;
 }
 
-/* .ljudljus {
-    max-width: 100%;
-    overflow-x: hidden;
-} */
-
 :root {
     font-size: 3vmin;
     --elevation-light1: 0 1px 1.5px 0px rgba(0, 0, 0, 0.12), 0 1px 1px 0 rgba(0, 0, 0, 0.24);
@@ -23,7 +18,6 @@
     --text-color: #01161E;
     --drk-shadow-color: #000000;
     --light-shadow-color: #FBFEF9;
-    --error-bg-color: #FF7400;
     --body-font-size: 3vmin; /* vmin använder antingen 1.5vh eller 1.5vw beroende på vilken av sidorna som är kortast */
     --h1-font-family: 'Limelight', Verdana, Helvetica;
     --body-font-family: 'Open Sans', sans-serif, Arial;
@@ -102,7 +96,7 @@ body {
 }
 
 .pagefade {
-    animation: fadeblack 0.6s ease-in-out 0s 1 normal;
+    animation: fadetodark 0.6s ease-in-out 0s 1 normal;
     animation-fill-mode: forwards;
 }
 
@@ -201,13 +195,10 @@ header div:first-of-type {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    /* margin: 0.5vh 0 0.5vh; */
     text-align: center; 
     align-items: center;
     margin: 0.6vmax 0;
 }
-
-/* Ändra storlek på h1 och h2 i divven */
 
 header div h1 {
     display: inline;
@@ -215,6 +206,7 @@ header div h1 {
     font-size: 2rem;
     font-weight: bold;
     letter-spacing: 0.5vw;
+    color: var(--bg-color);
 }
 
 header div h2 {
@@ -223,6 +215,7 @@ header div h2 {
     font-size: 1.6rem;
     font-weight: 800;
     letter-spacing: 0.2vw;
+    color: var(--bg-color);
 }     /* Hade kunnat använda (header div h1, header div h2) som selector ovan och endast ändrat font-family och font-size för (header div h2) under men det 
 hade inte blivit lika tydligt för läsaren som att dela upp det */
 
@@ -231,45 +224,34 @@ header div hr {
     background-color: var(--text-color);
     height: 0.7vmax;
     margin: 0.1vh 0.3vw;
-    width: 40vmin; /* Se till att fixa detta också med h1 och h2 så att denna inte blir för lång i jämförelse med dem */
+    width: 40vmin;
     border-radius: 2vmax;
 }
-
-/* header div:last-of-type {
-    text-align: center;
-    font-family: var(--body-font-family);
-    font-size: 1.1rem;
-    font-weight: 600;
-} */
 
 main.flexgrid {
     flex: 3 3 auto;
     display: flex;
     justify-content: center;
-    width: 100%; /* ev ändra till vw */
-   /* min-height: 300px;
-    max-height: 500px; */
-    padding: 2vh 0;  /* Ändra i desktopdesign */
+    width: 100%;
+    padding: 2vh 0;
 } 
 
 main.container { 
-    width: 100%; /* ev ändra till vw */
+    width: 100%;
     flex: 3 3 auto;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    padding: 4vh 0;  /* Ev ändra till vmin. Ändra i desktopdesign */
-} /* Av någon konstig anledning blir min container extremt stor i bredd helt utan anledning vilket jag inte kan ta reda på varför, då jag kollat 
-igenom alla child elements till den, css som beskriver den själv och även hur den opererar inuti body-flexboxen och inget tyder på att den 
-borde bete sig på detta sätt.*/
+    padding: 4vh 0;
+} 
 
 article.block {
     display: flex;
     flex: 1.5 1.5 auto;
     flex-direction: column;
-    align-items: center; /* gör så att allt centreras vertikal ( i mitten av mobilen) */
-    justify-content: space-evenly; /* Gör så att allt centreras mot mitten av viewporten, alltså att det dras mot mittpunkten, byt ev denna till flex-start eller space-around/between/evenly */
+    align-items: center; /* gör så att allt centreras vertikalt ( i mitten av mobilen) */
+    justify-content: space-evenly;
     background-color: var(--bg-color);
     border-radius: 4vmin;
     box-shadow: 1vmin 1vmin 2vmin #bbcfda, -0.5vmin -0.5vmin 2vmin var(--light-shadow-color);
@@ -278,7 +260,6 @@ article.block {
     padding-bottom: 3vmin;
     transition: all 400ms;
     font-family: var(--body-font-family);
-    /* Ta bort width och height värden så att de anpassar sig efter content istället. */
 }
 
 article.wifi {
@@ -314,19 +295,15 @@ div.whitebox {
 }
 
 .block video {
-    background: url("../img/imagesprite.jpg") no-repeat -217px -661px; /* ev byt till background-color: var(--drk-shadow-color) eller black för att få bort vit rand. */
-    background-size: cover;
-    width: 46vmin; /* ev ändra till 50vmin elr dylikt */
+    /*background: url("../img/imagesprite.jpg") no-repeat -217px -661px; 
+    background-size: cover; <- Låter detta vara kvar så för om man vill redigera/ändra i framtiden*/
+    background-color: var(--drk-shadow-color);
+    width: 46vmin; 
     height: auto;
     border-radius: 1.7vmin;
-    box-shadow: 1vmin 1vmin 2.5vmin var(--drk-shadow-color); /* Denna property ger en vit rand utanför videoboxen mellan videobox och skuggan, vilket blir konstigt - är ju något med boxen vilken är lätt att se i inspect, men varför blir det så? */
+    box-shadow: 1vmin 1vmin 2.5vmin var(--drk-shadow-color); 
     transition: all 400ms;
     margin-bottom: 2vmax;
-
-    /* Eventuellt förbättring här: skapa en som med Javascript onclick lägger till ett attribute för video, nämligen controls och så att 
-    den samtidigt försvinner typ - kanske tar för mycket tid 
-    https://www.w3schools.com/js/js_intro.asp
-    https://www.w3schools.com/js/js_htmldom_html.asp*/
 }
 
 #arrow.animate1 {
@@ -347,15 +324,15 @@ nav.navgrid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: repeat(4, 1fr);
-    grid-column-gap: 30vw; /* ev ändra till vmax och vmin (denna property och den under) */
+    grid-column-gap: 30vw;
     grid-row-gap: 5vh; 
 }
 
 .navgrid div {
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Might be unneccesary */
-    align-items: center; /* same as above */
+    justify-content: center;
+    align-items: center;
     font-family: var(--body-font-family);
 }
 
@@ -410,15 +387,31 @@ h3 {
     color: var(--text-color) !important;
 }
 
-/*div.errormessage {
-    display: none;
-    z-index: 200;
-
-
-    
-} */
-
 @keyframes half-spin1 { 
+    from { 
+        transform: rotate(0deg); 
+    } to { 
+        transform: rotate(180deg); 
+    }
+}
+
+@-webkit-keyframes half-spin1 { 
+    from { 
+        transform: rotate(0deg); 
+    } to { 
+        transform: rotate(180deg); 
+    }
+}
+
+@-moz-keyframes half-spin1 { 
+    from { 
+        transform: rotate(0deg); 
+    } to { 
+        transform: rotate(180deg); 
+    }
+}
+
+@-o-keyframes half-spin1 { 
     from { 
         transform: rotate(0deg); 
     } to { 
@@ -434,7 +427,67 @@ h3 {
     }
 }
 
-@keyframes fadeblack {
+@-webkit-keyframes half-spin2 { 
+    from { 
+        transform: rotate(180deg); 
+    } to { 
+        transform: rotate(360deg); 
+    }
+}
+
+@-moz-keyframes half-spin2 { 
+    from { 
+        transform: rotate(180deg); 
+    } to { 
+        transform: rotate(360deg); 
+    }
+}
+
+@-o-keyframes half-spin2 { 
+    from { 
+        transform: rotate(180deg); 
+    } to { 
+        transform: rotate(360deg); 
+    }
+}
+
+@keyframes fadetodark {
+    0% {
+        background-color: var(--bg-color);
+    }
+    50% {
+        background-color: var(--text-color);
+    }
+    100% {
+        background-color: var(--bg-color);
+    }
+}
+
+@-webkit-keyframes fadetodark {
+    0% {
+        background-color: var(--bg-color);
+    }
+    50% {
+        background-color: var(--text-color);
+    }
+    100% {
+        background-color: var(--bg-color);
+    }
+}
+
+@-moz-keyframes fadetodark {
+    0% {
+        background-color: var(--bg-color);
+    }
+    50% {
+        background-color: var(--text-color);
+    }
+    100% {
+        background-color: var(--bg-color);
+    }
+}
+
+@-o-keyframes fadetodark {
     0% {
         background-color: var(--bg-color);
     }
@@ -447,37 +500,40 @@ h3 {
 }
 
 @keyframes animatetop {
-    from {top:-300px; opacity:0}
-    to {top:0; opacity:1}
-}
-  
-
-
-
-/* @-ms-keyframes spin { 
-    from { 
-        -ms-transform: rotate(0deg); 
-    } to { 
-        -ms-transform: rotate(180deg); 
+    from {
+        top:-300px; opacity:0
+    }
+    to {
+        top:0; opacity:1
     }
 }
-@-moz-keyframes spin { 
-    from { 
-        -moz-transform: rotate(0deg); 
-    } to { 
-        -moz-transform: rotate(180deg); 
+
+@-webkit-keyframes animatetop {
+    from {
+        top:-300px; opacity:0
+    }
+    to {
+        top:0; opacity:1
     }
 }
-@-webkit-keyframes spin { 
-    from { 
-        -webkit-transform: rotate(0deg); 
-    } to { 
-        -webkit-transform: rotate(180deg); 
-    }
-} */
 
-/* https://www.youtube.com/watch?v=FK5DEa1Hvco - Använd javascripten från den videon (eventuellt också knappen) för 
-att skapa din nya knapp på desktop, där sidan då tar dig upp till start med en smooth animation istället för instant. */
+@-moz-keyframes animatetop {
+    from {
+        top:-300px; opacity:0
+    }
+    to {
+        top:0; opacity:1
+    }
+}
+
+@-o-keyframes animatetop {
+    from {
+        top:-300px; opacity:0
+    }
+    to {
+        top:0; opacity:1
+    }
+}
 
 @media screen and (min-width: 768px) {
     .block p {
@@ -485,7 +541,6 @@ att skapa din nya knapp på desktop, där sidan då tar dig upp till start med e
     }
 
 }
-
 
 @media screen and (min-width: 1024px) and (max-width: 1025px) and (max-height: 1366px) {
     .swal2-icon {
@@ -590,15 +645,6 @@ att skapa din nya knapp på desktop, där sidan då tar dig upp till start med e
         grid-column-end: 3;
     }
 
-    /* h3 {
-        font-size: 1.2rem;
-        font-weight: 750;
-    } */
-
-    /*.logotext h3 {
-        font-size: 1.5rem;
-    } */
-
     .block p {
         font-size: 0.75rem;
     }
@@ -606,60 +652,33 @@ att skapa din nya knapp på desktop, där sidan då tar dig upp till start med e
     
 
 
-/* Här läggs allt för desktop version. Tänk på att ändra stolekarna till article.block */
 
 
-
-
-/* @keyframes shimmer {
-    0% {
-      background-position: top left;
-    }
-    100% {
-      background-position: top right;
-    }
-  }
-EV fixa till denna effekten senare, om det inte fungerar så ta bort denna keyframe */
-/* min nuvarande idé är att ha en fulltäckande body som är en flexbox
+/* Min idé är/var att ha en fulltäckande body som är en flexbox
 med avseende på y/vertikal/ enkolumnig och bodyn skall bero på viewporten
 och fylla hela och om viewporten förändras kommer även itemsen i växa/minska
 i vertikal höjd (status_bar, header, nav, footer) och sedan skall contenten inuti
 (bilder, text osv) vara baserad på viewporten också vilket leder till att dem
 förändrar sig då viewport gör det vilket kommer säkerställa att
-containrarna både täcker in alla bilder samt att storlekarna
-på containrarna anpassar sig till varandra enligt flex grow och shrink
-Containrarna skall alltså INTE ha några definerade höjder men definerade 
-bredder vilket går ihop med en enkolumnings parent-flexbox.
-Till text skall du använda vmin eller vmax som unit (googla).
-En idé kan vara att använda vmax eller vmin till andra element också (som ikoner och bilder)
-så du slipper välja mellan vh och vm, men tänk på att vara försiktig
-Försök också använda icons från fontawesome så mycket som möjligt*/
-
-/* De delar som skiljer sig från sida till sida bör du skapa olika klasser för så
-att det enkelt går att redigera */
-
-
-/* Om tid finns i slutet av projektet kan du även leka med css animationer där 
-du animerar färger vilket du gjort flitigt i halloweenprojektet/mobilsidan utan
-att påverka något annat i systemen, eller animerar andra properties*/
-
-/* försök gärna att använda dig av en paralax effekt någonstans, om möjligt */
-
-/* Lägg till en media quierie som typ sätter display: none; på massa klasser/element då 
-höjden blir under 200 px eller så dylikt, så att man endast ser header och statusbar elr så,
-höj då också vh, vw och vmax/vmin i den media quieries för items inuti*/
-
-/* Istället för att använda dina ikoner till rubriker osv tar du ikoner från material.io och
-använder animated icons för att göra riktigt snygga animations när man klickar på dem typ */
-
-
-/* Om du inte använder ett enda grid så bör du någonstans i koden/i dokumentationen motivera varför
-du valt att inte använda dig av grids. (Koppla det till ditt flexbox-system och att det
-fungerar att hela responsitivtetsystemet bygger på flexbox. Eftersom ett grid-system
-går att ersättas av en flexbox på ett effektivt sätt fungerar det därför bättre osv) */
-
-
-/* Vissa problem font-size problem kan lösas genom att använda en font size med vmax istället för vmin. */
+containrarna både täcker in alla bilder (all content - alla child-elements) samt att storlekarna
+på containrarna anpassar sig till varandra enligt flex grow och shrink.
+Containrarna har alltså inte några definerade höjder men definerade
+bredder. Till det mesta annat har jag använt vmin och vmax vilket fungerar väldigt
+bra som "responsivt verktyg" då det är som vh och vw fast dem byter beroende 
+på om sidan/fönstret är större på bredd och på height - vilket hjälper konverteringen
+mellan desktop och mobil i viss min, i alla fall vissa resolutions däremellan.
+<br> <br>
+Alla mina ikoner kommer från Googles material.io (se LICENSE.txt under misc) vilket
+är ett val jag gjort då jag ville ha ett system där saker och ting samspelar på ett bra sätt, och även
+där ikonerna håller samma stil.
+<br> <br>
+Från början hade jag ju tänkt att skapa en helt flexbox-baserad sida där jag inte använde grids 
+eller knappast blocks, men eftersom märkte jag att det egentligen inte skulle ge allt för mycket
+och att vissa grids faktiskt skulle fungera exakt lika bra som en flexbox, även om de var integrerade i ett "flexbox-system"
+vilket faktiskt är något som jag har blivit rätt nöjd över. Med hjälp av att använda relativa enheter på mina attribut till
+klasser till de flesta elementen så har grids och flexboxar kunnat samspela i sidans layout. Vidare kan jag också nämna att 
+media quieries har använts för att ändra på layouten för att uppnå en desktoplayout men också för att skapa responsivitet 
+där flexboxsystemet och de relativa enheterna inte riktigt räckte till. */
 
 /* Glöm inte att i slutet testa din hemsida på chrome, safari, firefox mm (se kunskapskrav för vilka)
 Glöm inte heller att validera med "validator.w3.org" eller liknande för att se vad för 

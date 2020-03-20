@@ -1,7 +1,5 @@
 <!-- Se den kommenterade texten i detta html-dokument för att se exempel och förklaringar på hur dokumentationen ska vara uppbyggd. -->
 
-<!-- Länka till detta planeringsdokument i footern till din hemsida. -->
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -264,9 +262,11 @@
     <h3>Lektion vecka 11</h3>
     <!-- Fyll på med dokumentation här. -->
     Idag har jag fixat en del buggar på min sida och det har varit ganska svårt då 
-    konstiga buggar uppstått som var svårlösta. Nu är tanken att jag skall skriva
-    en funktion som gör så att min "pilikon" roterar 180 grader när man scrollar ner OCH
-    roterar tillbara när man scrollar upp.
+    konstiga buggar uppstått som var svårlösta,m en annars så har det i övrigt gått bra och 
+    min kodning fungerar i huvudsak så som jag vill, men jag kommer nog att ändra lite saker framöver.
+    Nu/härnäst är tanken att jag skall skriva en funktion som gör så att min "pilikon" roterar 180 grader när man scrollar ner OCH
+    roterar tillbara när man scrollar upp, vilket jag tror kommer att gå att lösas med keyframes 
+    animationer i kombination med javascript, men det kan bli svårt.
 
     <h3>Lektion vecka 12</h3>
     <!-- Fyll på med dokumentation här. -->
@@ -277,13 +277,125 @@
     då jag egentligen bara söker försöker få en "engångsdelay". Detta är något som jag får undersöka Vidare
     och försöka fixa ikväll, men förutom det så har det mesta gått bra idag och jag fick löst ett problem
     som jag hade senast då jag försökte få selectorn till min error-message att fungera, men det fungerade 
-    inte då men nu när jag lade till "!important" på varje attribut så gav det effekt.
+    inte då men nu när jag lade till "!important" på varje attribut så gav det effekt. Under kommande 
+    dagarna ska jag fortsätta att bygga min desktop-version och sedan lägga till en modal slidedown samt lite andra 
+    delar som jag tror kommer bli svårt men det kan nog gå bra om jag sätter mig in i hur det fungerar.
 
     <!-- TÄNK PÅ ATT KOLLA IGENOM BEDÖMNINGSMATRISEN INFÖR DOKUMENTATIONEN OCH VAR
     NOGGRANN PÅ ATT FÅ MED ALLA OLIKA SLAGS TESTER OSV, UTFÖRLIGT! -->
 
     <h2>4. Testning</h2>
     <!-- Testa i Chrome + Firefox eller Safari (på både dator och mobil). Skiljer sig resultatet? Har du behövt anpassa ditt kod/innehåll efter de olika webbläsarna? Hur gick valideringen? Vad säger contrastchecker.com om text/bakgrundsfärg? Hur ser resultatet ut på en riktig telefon? -->
+    <!-- Glöm inte att i slutet testa din hemsida på chrome, safari, firefox mm (se kunskapskrav för vilka)
+    Glöm inte heller att validera med "validator.w3.org" eller liknande för att se vad för 
+    saker du kan behöva fixa, men detta behöver du en live-server till (får fixa på lektion, går inte att fixa så lätt) 
+    Länken ovan används till html medans denna kan användas till css: "jigsaw.w3.org/css-validator" */ -->
+    
+    Under projektets gång har jag hela tiden jobbat med validering/testning genom att främst använda google chromes inspect verktyg
+    och kollat på sidan genom de standardiserade mobilresolutionsens (Iphone 5,6,7,8,X , ipad, ipad pro, Galaxy S5 mm) 
+    samt validerat koden via fullscreen och responsive, där jag har dragit runt och testat så många olika format som möjligt
+    för att hitta buggar, vilka jag också hittat och därmed åtgärdat (ex om en text såg för stor ut på en sida eller om
+    ett visst element fick alldeles för stor height/width/padding/margin - you name it - och har då gått in
+    i css och ändrat dessa attribut för respektive selector, oftast via media quieries.).
+    Men jag har inte bara använt chrome utan även firefox där jag använt samma funktioner där, och testat
+    olika format på olika mobiler och testat massor av olika format i allmänhet. Jag märkte ingenting som inte hade fungerat 
+    på den ena webbläsare på den andra och allting verkade faktiskt fungera smooth, och de buggar som uppstod, uppstod på alla webbläsare
+    och fungerade sedan på alla när buggarna hade åtgärdats. Alltså märktes inga skillander mellan webbläsarna, bortsätt från när jag 
+    använde mobilen som enhet, vilket följer här nedan. <br><br>
+    
+    Förutom att endast testa på datorn har jag både använt chrome samt safari på min mobil, men också på min ipad för att testa hur sidan ser ut på 
+    de riktiga enheterna (simuleringarna behöver ju inte vara 100% korrekta, speciellt när man zoomar ut/in), via live-server och min ipv4 adress.
+    Vid dessa tester märkte jag att på chrome samt safari på både mobil (iphone SE) och vanlig ipad fungerade inte vissa animationer som jag använde, 
+    och för att lösa det implementerade jag något prefix på min @keyframes, nämnligen -webkit- , -moz-, och -o-, och jag tog
+    alla dessa för att täcka så många webbläsare som möjligt, dock använde jag inte -ms- för att säkerställa att det skulle
+    fungera på internet explorer, vilket är en läsare som idag knappt används. (Jag gjorde främst för att det skulle fungera för Safari.)
+    (Ett exempel på en animation som inte fungerade (på mobil) innan jag lade till mina prefix var "slide-down" animationen för min modal, vilken
+    då fungerande som på datorn efter att jag hade skrivit in mina prefix.) (Ett annat exempel var min "scroll-arrow" på larmlas.html och ljudljus.html som inte fungerade
+    korrekt på mobilen först, men efter att jag lagt till prefixen så fungerade även denna animation som på datorn.) <br><br>
+
+    Jag använde mig av en css validator ("jigsaw.w3.org/css-validator") för att kontrollera min css-kod; <a href="https://gyazo.com/332997d6d64172fe1ed9800116684e63">resultatet</a>. 
+    Det enda som den egentligen kommenterade på var mina css-variabler vilka fungerade, och det betyder egentligen bara att validatorn inte förstår css-variabler, varningarna
+    som jag fick var densamma fast om mina prefix och dem tyckte validatorn att dem inte gav någon effekt typ, men det har jag klart och tydligt sett att dem gjort.
+    <br> 
+    På samma sida använde jag deras html/general markup validator och fick dessa resultat: <a href="https://gyazo.com/810c3118a7e7c484e6c99f5aebe1843d">index.html</a> 
+    <a href="https://gyazo.com/fe4658ea9b1d6a1a72fe003e0510be7a">sakringar.html</a> <a href="https://gyazo.com/47380e6e9dd42c8413b26b037169c951">wifi.html</a>
+    <a href="https://gyazo.com/0c21a8a1058c3860ca8446e6e70e22f9">ljudljus.html</a> <a href="https://gyazo.com/cf5b19f197133595cf63d0e01c930bc7">larmlas.html</a>
+    <br> Där egentligen ingenting var fel förutom att den klagade på att jag hade ett type attribute till mina javascriptfiler i html vilket
+    inte heller är ivägen, utan förtydligar, och därför valde jag att ha kvar dem. Sedan klagade den i allmänhet på valuesen i mina links till olika stylesheets
+    om att vissa tecken inte fick vara där i, men dock fungerar koden och det körs oproblematiskt vilket alltså därför inte spelar något syfte i att ta bort det/korrigera.
+    <br><br>
+
+    För att testa färgerna använde jag <a href="https://contrastchecker.com">contrastchecker</a> och testade först min textfärg mot 
+    bakgrundfärgen i min header (se <a href="https://gyazo.com/4dce48550961ef97c1d2928a43ac0847">bild</a>). Tyvärr fungerade dessa inte 
+    alls och kontrasten blev väldigt dålig, men dock har mina h1 samt h2 element en väldigt hög font-weight (väldigt bold) samt att den har en stor font, men trots
+    detta har jag valt att byta ut färgen för just headern då det fungerar att låta h1 samt h2 rubriken vara utstickande från resten av all annan standardtextfärg samt
+    border/others färg (använder den färgen till mycket för att vara consistent, och för att skapa ett fungerande color scheme.). (<a href="https://gyazo.com/810a3533ce5df761964da9b928142624">Bild</a> på h1 i header innan färgbyte) 
+    Jag valde att använda den generella --bg-color till min h1 och h2 vilket gav en snygg touch, samtidigt som jag lät min hr tag fortsatt ha kvar färgen för 
+    att stilen med den färgen ska kvarhållas, så att det endast blir h1 och h2 som sticker ut i färg. När jag testade den nya färgen mot bakgrundfärgen fick jag <a href="https://gyazo.com/c20c385be254ef476c119a6d2590c61d">detta</a> resultat.
+    Trots att AAA inte uppfylls spelar det ingen roll då h1 och h2 har så pass stor font-size samt hög font-weight att de fungerar ändå, och 
+    de andra vilka omtäcker h1 och h2:s egenskaper är godkända. 
+    <br> 
+    Jag testade också den ljusare röda färgen mot den vanliga textfärgen och fick <a href="https://gyazo.com/269be3e6c3e96f46d837eb16ed89bbe9">detta</a> resultat.
+    Eftersom dessa två färger används sällan när det kommer till text tycker jag det är förlåtligt, samt som den faktiskt var godkänd på 18px och upp - vilket jag åtminstone
+    nästan har på min förstasida (och definitivt i mina modals). Eftersom detta skulle bli ett för stort borthopp från consistency valde jag att då har kvar detta, 
+    eftersom det som sagt fungerade med 18px och upp. Annars så används denna färgen generellt sätt i knappar mot ikoner vilket fungerar bra då det inte är text, och ikonerna 
+    är stora.
+    <br>
+    Jag testade givetvis text-färgen mot bg-färgen vilket var den vanligaste kombinationen då text användes och det gick alldeles galant: <a href="https://gyazo.com/e97eaad4dd140f02ee73a9cb9e04bf34">Bild</a>.
+    På wifi sidan använde jag också textfärgen mot en ännu ljusare färg, vilket givetvis blir ännu bättre, men trots det körde jag ett test på text-färgen och denna bakgrundfärg också. Se <a href="https://gyazo.com/4d3a4693b568f60ff4628555c7843703">Bild</a> 
+    <br><br>
+
+    I övrigt har valideringen gått bra då jag gjort det i princip konstant hela tiden och det är på det viset jag byggt upp min sida, då jag har svårt för att skriva
+    mycket kod och direkt bygga upp en bild i huvudet, så när jag jobbat hemifrån har jag haft sidan live på en skärm och visual studio code på den andra för att hela 
+    tiden se vad min kod åstadkommer och då också direkt hittat buggar, istället för att dem skulle bli inbakade och svårlösta i ett senare stadie. Alltså har jag tagit
+    itu med buggar när de väl har uppstått, förutom dem där jag kunde lösa dem senare, men då har jag skrivit css kommenterar till mig själv för att komma ihåg
+    (borttagna inför inlämning). Å andra sidan hade jag kunnat skriva mer kod i taget och sedan validera, då det hade gått fortare men jag tror faktiskt att de 
+    problemet jag har undvikit i och med att jag har validerat har dragit ner tidsåtgången, för annars hade jag fått bryta ner min kod och kolla på den och "djupdebugga", vilket
+    istället skulle ha tagit massor av tid.
+
+
+
+    <br><br><br><br>
+    <strong>Eftersom jag inte hittat ett lämpligare ställe att skriva på så har jag valt att skriva lite om mina val och problem som
+    jag stött på här också.</strong>
+    <br> <br>
+
+    I mitt arbete har jag försökt optimera bilder för att åstadkomma snabb överföring
+    som möjligt och så att så lite antal överföringar sker per sida.
+    Jag har använt mig av css sprites för att koppla samman två bilder
+    till en fil, vilket går snabbare att ladda in samt tar mindre plats
+    än om jag skulle haft två stycken separata bildfiler.
+    Utöver det har jag också optimera videon som finns på sidan, som endast
+    skall fungera som en template där kunden sedan kan lägga in sin egna video.
+    För att optimera denna videon har jag behandlat den i Sony Vegas Pro OCH
+    skapat en fil som skall vara så smärtfri som möjligt så att sidans överföringstid
+    inte skall påverkas drastiskt.
+
+    Min idé är/var att ha en fulltäckande body som är en flexbox
+    med avseende på y/vertikal/ enkolumnig och bodyn skall bero på viewporten
+    och fylla hela och om viewporten förändras kommer även itemsen i växa/minska
+    i vertikal höjd (status_bar, header, nav, footer) och sedan skall contenten inuti
+    (bilder, text osv) vara baserad på viewporten också vilket leder till att dem
+    förändrar sig då viewport gör det vilket kommer säkerställa att
+    containrarna både täcker in alla bilder (all content - alla child-elements) samt att storlekarna
+    på containrarna anpassar sig till varandra enligt flex grow och shrink.
+    Containrarna har alltså inte några definerade höjder men definerade
+    bredder. Till det mesta annat har jag använt vmin och vmax vilket fungerar väldigt
+    bra som "responsivt verktyg" då det är som vh och vw fast dem byter beroende 
+    på om sidan/fönstret är större på bredd och på height - vilket hjälper konverteringen
+    mellan desktop och mobil i viss min, i alla fall vissa resolutions däremellan.
+    <br> <br>
+    Alla mina ikoner kommer från Googles material.io (se LICENSE.txt under misc) vilket
+    är ett val jag gjort då jag ville ha ett system där saker och ting samspelar på ett bra sätt, och även
+    där ikonerna håller samma stil.
+    <br> <br>
+    Från början hade jag ju tänkt att skapa en helt flexbox-baserad sida där jag inte använde grids 
+    eller knappast blocks, men eftersom märkte jag att det egentligen inte skulle ge allt för mycket
+    och att vissa grids faktiskt skulle fungera exakt lika bra som en flexbox, även om de var integrerade i ett "flexbox-system"
+    vilket faktiskt är något som jag har blivit rätt nöjd över. Med hjälp av att använda relativa enheter på mina attribut till
+    klasser till de flesta elementen så har grids och flexboxar kunnat samspela i sidans layout. Vidare kan jag också nämna att 
+    media quieries har använts för att ändra på layouten för att uppnå en desktoplayout men också för att skapa responsivitet 
+    där flexboxsystemet och de relativa enheterna inte riktigt räckte till.
 
     <h2>5. Utvärdering</h2>
     <!-- Ex: Vad gick bra/mindre bra? (i arbetet/din förmåga).
@@ -295,6 +407,25 @@
     planera om och skriv sedan hur du planerade om lite kort.) MOTIVERA VARFÖR DU INTE HAR NÅGON OCH FÖRKLARA 
     FÖRBÄTTRINGSFÖRSLAG. 
 
-</body>
+    SKRIV OM HUR DU LÖSTE PROBLEMET MED DEN VITA BOXEN/RANDEN SOM Kom runt video elementet genom att 
+    byta färgen på background-color till black så att det såg relativt mycket bättre ut.
 
+    Beskriv också buggen om hur du tidigare
+    fick se en liten vit linje (progress container) vid fadetodark animationen (https://gyazo.com/5b707918a289ae3d0116e147fa5141d6),
+    men att du löste det genom att lägga på animationsklassen på progress-container, vilket
+    gjorde att även den påverkades av animationen, och därmed löste buggen.
+
+    Ett problem som jag stötte på var att jag i javascript använde mig utav setTimeout och jag fick en felaktig effekt då
+    det för mig verkade som att min setTimeout fungerade som en setInterval , där istället funktionen skulle loopas.
+    Dock efter en del undersökande såg jag att setTimeout fungerade som en loop om man skrev det på det sättet jag först hade skrivit,
+    men om man skrev om lite (till så jag har det nu) fungerade det istället som något som bara kör funktionen en gång, med en delay innan.
+
+    Jag har använt mig av style i html eftersom varje i tag i princip är helt unik
+    dem behöver olika font-size för varje, vilket hade blivit ostrukturerat och jobbigt att lösa
+    med ett id för varje specfik i tag (icon). Det är också lättare för andra att förstå koden och vilken css-kod
+    som gäller till vad än om jag hade haft ett id "#arrow1" som skulle ta massa plats i css-filen, och det skulle vara 
+    svårt och koppla rätt id till rätt icon (minst 20 id:s).
+
+
+</body>
 </html>

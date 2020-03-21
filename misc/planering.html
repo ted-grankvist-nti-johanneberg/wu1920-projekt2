@@ -15,6 +15,16 @@
         th {
             border: 1px solid black
         }
+
+        .container {
+            display:flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+        }
+
+        img:hover {
+            transform: scale(1.7);
+        }
     </style>
 
 </head>
@@ -52,9 +62,12 @@
     utveckla flera sidor men det behöver inte nödvändigtvis bli av då GSD-projektet redan består av över 5 sidor.
     <h2>2. Planering</h2>
 
-    <h3>2.1 Handskiss</h3>
+    <h3>2.1 Handskisser</h3>
     <!-- Här lägger du en bild på din handskiss av layouten. Viktigt att du beskriver vilka boxelement som ska användas. Visa även hur du tänker med ditt grid (Hur många kolumner?) -->
-    <img src="../img/englandflag.png">
+    <div class="container">
+        <img src="../misc/handskissmobile.jpg" style="width: 300px; height: 500px;">
+        <img src="../misc/handskissdesktop.jpg" style="width: 300px; height: 500px;">
+    </div>
     <h3>2.2 Schema</h3>
     <!-- Vad ska du göra när? Inte för detaljerat. -->
 
@@ -396,36 +409,127 @@
     klasser till de flesta elementen så har grids och flexboxar kunnat samspela i sidans layout. Vidare kan jag också nämna att 
     media quieries har använts för att ändra på layouten för att uppnå en desktoplayout men också för att skapa responsivitet 
     där flexboxsystemet och de relativa enheterna inte riktigt räckte till.
+    <br> <br>
 
     <h2>5. Utvärdering</h2>
     <!-- Ex: Vad gick bra/mindre bra? (i arbetet/din förmåga).
     Nyanserat: "hur hade det blivit om jag istället hade...?"
     Konkreta förbättringsförslag i produkt + process. -->
-    
-    (Skriv om hur du ändrade i planeringen, ex om hur du ändrade då du missade en lektion + att 
-    du inte hann så långt som du önskat under den första lektionen, vilket ledde till att du behövde
-    planera om och skriv sedan hur du planerade om lite kort.) MOTIVERA VARFÖR DU INTE HAR NÅGON OCH FÖRKLARA 
-    FÖRBÄTTRINGSFÖRSLAG. 
 
-    SKRIV OM HUR DU LÖSTE PROBLEMET MED DEN VITA BOXEN/RANDEN SOM Kom runt video elementet genom att 
-    byta färgen på background-color till black så att det såg relativt mycket bättre ut.
+    I början lade jag upp en planering som kom att inte hålla överhuvudtaget. Jag underskattade hur mycket
+    tid vissa processer skulle ta och i slutändan blev reslutatet att efter endast ett par lektioner så kom jag
+    efter i arbetet vilket ledde till att jag behövde börja revidera min tidsplan och fick lägga om mitt tänk.
+    Eftersom jag var borta en lektion samt att jag råkade missa att vi hade sportlov så låg jag by default 2 veckor
+    bak samt att jag hade mycket svårt i början att komma igång. Det som dock hände var att jag fick lägga om min plan, 
+    och när jag väl ett par veckor in hade kommit in i arbetet och lagt grunden märkte jag att resten av mitt arbete skulle
+    gå mycket fortare, vilket ledde till att flera lektioner i slutet, där jag hade avsatt mycket tid till responsivtetsarbete
+    och omvandling från mobile till desktopversion inte alls behövde lika mycket tid då grundarbetet förenklade detta och 
+    därför kunde dessa processer, som jag trott skulle ta lång tid, göras på mycket kortare tid. I framtida projekt måste jag 
+    alltså ha i åtanke att förarbetet/början av arbetet är det som tar absolut längst tid och att arbetet sedan kommer
+    att flyta på, om jag jobbar på samma sätt som jag gjort detta projekt. Exempel på när saker tog för lång tid var när 
+    jag började utforma hela min flexbox-struktur för hela hemsidan vilket var ett enormt arbete, men när utformningen av den
+    väl var klar gick det enkelt att bygga upp sidor en för en och sedan knyta ihop dem med lite javascript. Något som hände
+    var också att jag i slutet fick flera idéer med javascript där jag kunde integrera intressanta animationer där css och 
+    javascript samspelar (ex fade-animationen då man rör sig mellan sidor) - vilket jag faktiskt hade tid med. Lärdomen jag drar av detta är att dessa projekt alltid inte går 
+    som man tänkt och att man kommer att komma på nya idéer under arbetets gång, för att sedan implementera dessa idéer
+    på produkten. Alltså måste man alltid räkna med att planeringen kommer att ändras, och ett sätt att förbereda för det 
+    är ju att helt enkelt skapa en flexibel plan där man har utrymme för förändring.
+    <br> <br>
+    Vidare kan jag kommentera min handskiss som kom att följas lite halvt, då jag valde att förändra många aspekter av 
+    handskissen efter arbetets gång, och detta har ju just med det som jag beskrev ovan att göra.  Skissen var 
+    min utgångspunkt men jag har tillåtit mig att göra korrigeringar i efterhand för att skapa en så bra 
+    webbsida som möjliga.
+    <br> <br>
 
-    Beskriv också buggen om hur du tidigare
-    fick se en liten vit linje (progress container) vid fadetodark animationen (https://gyazo.com/5b707918a289ae3d0116e147fa5141d6),
-    men att du löste det genom att lägga på animationsklassen på progress-container, vilket
-    gjorde att även den påverkades av animationen, och därmed löste buggen.
+    En annan sak som jag vill kommentera är footern, då jag valt att inte använda mig av en i detta projekt.
+    Eftersom jag baserar detta projekt på mitt GSD-projekt så använde jag mig inte av en footer på mobilsidan, eftersom 
+    den inte hade det. När det kommer till desktopversionen såg jag heller inget syfte med en footer och valde därför för
+    att avstå från att använda mig utav den. Å andra sidan skulle jag kunna redesigna mitt GSD-projekt för att kunna
+    integrera en footer där den fyller ett visst syfte. Till exempel skulle jag kunna inkludera lite generella kontaktuppgifter, men 
+    eftersom sidan från början faktiskt har en kontaktsida så känns det lite meningslöst det också. På något sätt skulle
+    jag i alla fall kunna integrera en footer som fungerar i sidan. 
+    <br> <br>
 
-    Ett problem som jag stötte på var att jag i javascript använde mig utav setTimeout och jag fick en felaktig effekt då
-    det för mig verkade som att min setTimeout fungerade som en setInterval , där istället funktionen skulle loopas.
-    Dock efter en del undersökande såg jag att setTimeout fungerade som en loop om man skrev det på det sättet jag först hade skrivit,
-    men om man skrev om lite (till så jag har det nu) fungerade det istället som något som bara kör funktionen en gång, med en delay innan.
-
-    Jag har använt mig av style i html eftersom varje i tag i princip är helt unik
+    En tredje sak att kommentera; jag har använt mig av style i html eftersom varje i tag i princip är helt unik
     dem behöver olika font-size för varje, vilket hade blivit ostrukturerat och jobbigt att lösa
     med ett id för varje specfik i tag (icon). Det är också lättare för andra att förstå koden och vilken css-kod
     som gäller till vad än om jag hade haft ett id "#arrow1" som skulle ta massa plats i css-filen, och det skulle vara 
     svårt och koppla rätt id till rätt icon (minst 20 id:s).
+    <br> <br>
 
+    En fjärde sak som jag vill kommentera är varför jag har en flex-box container till mitt navgrid på index.html, och det 
+    är för att jag ville kunna ha den som ett omtäckande element som ingår i flexbox-systemet. M.h.a av att denna container också
+    är en flexbox kunde jag också centrera mitt navgrid både vertikalt och horizontellt inuti containern, vilket gav 
+    en enkelt lösning på hur jag skulle centrerera griddet, och en lösning som är väldigt kompatibel med hela min flexbox-struktur.
+    <br> <br>
+    
+    En femte sak jag vill kommentera:
+    Sidan för säkringar tenderar att bli konstig i preview mode för ipad, men det är endast en bugg som uppstår ibland och om man kollar
+    ser man att width är densamma som på ex ljudljus osv och att textstorlek och all annan content inte varierar i bredd => fel på webbläsarvyn, och därför
+    har jag visat när det fungerar <a href="https://gyazo.com/0283fd8989bea5fb5b12768eadc851ad">här</a>.
+    Detsamma gäller för Wi-Fi <a href="https://gyazo.com/d4ca7293abb240dbc5bd02cf8cd4a142">sidan</a>.  
+    (Notera att detta var något som hände i min Tour 3 video under misc mappen, där min inspect sida blev lite konstigt trots att den var på 100% zoom, så alltså
+    agerar den olika ibland p.g.a att den inte är buggfri. Så vitt jag har testat tenderar sidan att fungera mycket bättre (mer avseende på responsivitet) 
+    än vad den gjorde just där)
+    <br><br>
+    <strong>Här kommer ett par problem som jag mötte under projekets gång:</strong>
+    <br>
+    
+    Vid ett tillfälle uppstod ett problem/en bugg då en vit rand uppstod runt mitt video-element, och det löste jag genom att 
+    byta färgen på background-color till black (samma som box-shadow:s färg) så att det såg relativt mycket bättre ut.
+    <br>
+    En bugg som uppstod var att en liten vit linje (progress container) vid fadetodark animationen (https://gyazo.com/5b707918a289ae3d0116e147fa5141d6),
+    fanns, men jag löste det genom att lägga på animationsklassen på progress-container, vilket
+    gjorde att även den påverkades av animationen, och därmed löste buggen (progress-containern animerades också).
+    <br>
+    Ett problem som jag stötte på var att jag i javascript använde mig utav setTimeout och jag fick en felaktig effekt då
+    det för mig verkade som att min setTimeout fungerade som en setInterval , där istället funktionen skulle loopas.
+    Dock efter en del undersökande såg jag att setTimeout fungerade som en loop om man skrev det på det sättet jag först hade skrivit,
+    men om man skrev om lite (till så jag har det nu) fungerade det istället som något som bara kör funktionen en gång, med en delay innan.
+    <br>
+    <br>
+    <strong>Här kommer vad som gick bra/dåligt samt förbättringsförslag</strong>
+    <br>
+    <br>
+    Det som jag anser har gått alldra bäst är nog hur jag lyckats kombinera ett flexbox-system med både grids och inre flexboxar.
+    Jag har använt grids där det har varit bristande med flex-boxar (se t.ex. wifi sidan desktopversion) och flexboxar 
+    där jag behövt centrera saker eller skapa lika långa avstånd mellan child-element till parent-flexboxen, eller
+    andra slags förhållanden (justify-content: space-between, space-evenly och space-around mm)
+    samtidigt som jag varirat mellan flexboxar som använder wraps och som har flex-diretction row och columns.
+    Andra saker som jag gått bra och som jag anser att jag har lyckats med är samspelet mellan css och javascript 
+    där jag använt och lärt mig mycket javascript för att utforma funktioner som fungerar bra tillsammans med 
+    css:s keyframes animations. Detta har tagit mycket tid och varit mycket svårt, nog bland det svårast av hela uppgiften, att
+    få till javascript program att fungera så jag vill, men det har också varit det som givit sidan det som jag uppskattar med den mest 
+    åtminstone. Det var svårt och jobbigt men i slutändan var det så värt det då jag lärde mig så extremt mycket samtidigt som jag
+    faktiskt fick ut något. Saker som jag inte riktigt är nöjd med och som kanske har varit mina svagheter var att i början 
+    väl få till strukturen med flexbox-systemet, alltså själva uppbyggnaden var det som tog alldra mest tid och där det uppstod alldra 
+    mest problem som jag fick ta itu med - vilket givetvis tog enorma mängder tid. Men här också lärde jag mig enormt mycket och till slut
+    fick jag något som fungerade som jag ville. Å andra sidan skulle jag kunna arbeta mycket mer med att fixa till mitt flex-box system för att
+    skapa en bättre produkt men det är inte kanske det viktigaste, för det fungerar ju ändå som jag vill. Men saker jag skulle kunna bygga vidare på är 
+    och förbättra är t.ex. desktoplayouten som inte liknar det kanske typiska utseendet för hemsidor utan snarare något som skall endast vara funktionellt (det är
+    ju trots allt en användarmanual). Jag skulle kunnat försöka skapa en mer typisk desktop struktur med articles, asides och en footer där jag bygger upp det mer likt 
+    t.ex. aftonbladets hemsida. Men detta är ju inte heller ett krav, men om jag skulle kunna lyckas att på något sätt skapa articles på främst index.html där 
+    det finns en aside och section och en nav som ligger under headern mm. Detta är ju mer av den typiska layouten men den var inte riktigt det som mitt GSD-projekt byggde 
+    på. Alltså skulle en omformning av index.html och kanske även de andra sidorna på desktopversionen som gjorde att de såg ut mer <a href="https://www.w3schools.com/html/img_sem_elements.gif">såhär</a> varit ett önskvärt mål.
+    Jag skulle här kunnat använda mig av både img tags, tables och mer inuti gridsystem för att skapa en fylligare sida med mer innehåll och funktionalitet. Till exempel 
+    skulle jag kunna ha ett avlångt gridsystem i mitten med olika articles, aside:s som sträcker sig över flera rows och andra saker som tar upp hela columner mm, samtidigt 
+    som jag på höger och vänster sida om detta grid-system har två stora flex-boxar, eller flera små där jag lägger ut vissa mindre saker som kan dyka upp lika då och när man scrollar 
+    upp och ner, genom att använda justify-content: space-between; då parent-flexboxen har en columnriktining (flex-direction: column;)
+    En annan sak som jag skulle kunna förbättra är animationen för min model, som just nu bara försvinner så fort man klickar på krysset eller utanför modal:ens box. Om jag
+    istället skapade en "reverse" animation i javascript skulle jag kunna låta den triggas av att man klickar utanför modalen eller om man klickar på krysset, så att den 
+    istället åker upp på samma sätt som den åkte ner. Om jag gör detta vill jag kanske byta ut kryss ikonen mot något annat då den typiskt symboliserar att man kryssar bort något, tar 
+    bort det istället för att flytta bort den. Men en pil som symboliserar att man ska skicka upp den igen hade fungerat i detta läget. En annan ganska solklar sak
+    som jag skulle kunna förbättra är att bygga vidare sidan där den inte är utvecklad. Ett exempel skulle kunna vara en att ge flagknappen på index.html en funktion 
+    som främst gör att den byter flagga till svenska och att jag med hjälp av javascript har en funktion som ändrar html:en och all text till engelska, så att man 
+    skulle kunna switcha från engelska till svenska osv, fram och tillbaka. Ett annat förbättringsförslag kan vara att försöka fixa min arrow-animation som endast roterar "upp igen"
+    när man scrollat tillräckligt långt upp på skärmen. För vissa resolutions krävs att man scrollar väldigt långt upp/exakt hela vägen för att ikonen skall rotera tillbaka 
+    så att den pekar neråt. Detta kan lösas genom att ha en funktion i javascript som beroende på viewports höjd anpassar vid vilket "y-värde" eller height 
+    som respektive animations skall triggas (180 grader upp eller ner), vilket skulle göra att sidan upplevs mer funktionell och användarvänlig.
+    Ännu ett förbättringsförslag skulle kunna vara att förbättra resolutionsen på min video-player, eller ja då controlsens storlek blir lite överdrivet stor 
+    på vissa mobiler t.ex. Ett lösningsförslag kan vara att använda sig av en custom- video player där jag med css skräddarsyr min egna control-bar med ljud, play button osv 
+    vilket är något som tar en del tid men som ändå går. Givetvis finns det fler förbättringar som jag skulle kunna göra, speciellt estetiska men 
+    allt kan inte bli perfekt och jag kan heller inte gå in på allt, men detta sammanfattar ungefär de förbättringsförslag har jag kommit att tänka på.https://www.w3schools.com/html/img_sem_elements.gif
+    <br>
 
 </body>
 </html>

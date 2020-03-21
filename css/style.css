@@ -18,7 +18,7 @@
     --text-color: #01161E;
     --drk-shadow-color: #000000;
     --light-shadow-color: #FBFEF9;
-    --body-font-size: 3vmin; /* vmin använder antingen 1.5vh eller 1.5vw beroende på vilken av sidorna som är kortast */
+    --body-font-size: 3vmin;
     --h1-font-family: 'Limelight', Verdana, Helvetica;
     --body-font-family: 'Open Sans', sans-serif, Arial;
     color: var(--text-color);
@@ -27,7 +27,7 @@
 body {
     display: flex;
     width: 100%; 
-    height: 100vh; /* ev ändra till %, om det inte fungerar på de andra sidorna, även om det blir konstigt på desktopsidan. */
+    height: 100vh; 
     flex-direction: column;
     background-color: var(--bg-color);
     justify-content: space-between;
@@ -35,17 +35,17 @@ body {
 }
 
 .modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 100; /* Sit on top */
-    padding-top: 5vh; /* Location of the box */
+    display: none; 
+    position: fixed; 
+    z-index: 100; 
+    padding-top: 5vh; 
     left: 0;
     top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgb(0,0,0); /* Fallback färg */
+    background-color: rgba(0,0,0,0.4); /* Svart med opacity */
     font-family: var(--body-font-family);
 }
   
@@ -119,9 +119,6 @@ i {
     -webkit-box-shadow: inset 0px -47px 16px -56px rgba(0,0,0,1);
     -moz-box-shadow: inset 0px -47px 16px -56px rgba(0,0,0,1);
     box-shadow: inset 0px -47px 16px -56px rgba(0,0,0,1);
-
-   /* min-height: 20px;
-    max-height: 40px; */
 }
 
 .statusicons {
@@ -132,17 +129,15 @@ header {
     flex: 0.15 0.15 auto;
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap; /* might be dangerous */
+    flex-wrap: wrap;
     background-color: var(--header-bg-color);
-    width: 100%; /*ev ändra till vw */
-   /* min-height: 100px;
-    max-height: 150px;*/
-    justify-content: space-around; /* ev byt till space-between */
+    width: 100%;
+    justify-content: space-around;
     align-items: center;
     -webkit-box-shadow: inset 0px 0px 5px 0px rgba(0,0,0,1);
     -moz-box-shadow: inset 0px 0px 5px 0px rgba(0,0,0,1);
     box-shadow: inset 0px 0px 5px 0px rgba(0,0,0,1);
-} /* Skapa en design där header är fixed på desktop och status-baren inte finns, Lägg också till en scroll indicator på desktop i desktop (referera till klassen i html i en media quiere, tutorial: https://www.w3schools.com/howto/howto_js_scroll_indicator.asp */
+} 
 
 .progress-container {
     flex: 0.1 0.1 auto;
@@ -152,13 +147,12 @@ header {
     background: var(--bg-color);
     height: 0.5vh;
     z-index: 99;
-} /* Lägg denna along med andra properties i media quierien */
+} 
 
 .progress-bar {
     background:var(--text-color);
     width: 0%;
     height: 0.5vh;
-    /*z-index: 98; */
 }
 
 button.small {
@@ -590,7 +584,7 @@ h3 {
     nav.navgrid {
         grid-template-columns: repeat(4, 1fr);
         grid-template-rows: repeat(2, 1fr);
-        grid-column-gap: 8vw; /* ev ändra till vmax och vmin (denna property och den under) */
+        grid-column-gap: 8vw;
         grid-row-gap: 5vmin; 
     }
 
@@ -649,43 +643,3 @@ h3 {
         font-size: 0.75rem;
     }
 }
-    
-
-
-
-
-/* Min idé är/var att ha en fulltäckande body som är en flexbox
-med avseende på y/vertikal/ enkolumnig och bodyn skall bero på viewporten
-och fylla hela och om viewporten förändras kommer även itemsen i växa/minska
-i vertikal höjd (status_bar, header, nav, footer) och sedan skall contenten inuti
-(bilder, text osv) vara baserad på viewporten också vilket leder till att dem
-förändrar sig då viewport gör det vilket kommer säkerställa att
-containrarna både täcker in alla bilder (all content - alla child-elements) samt att storlekarna
-på containrarna anpassar sig till varandra enligt flex grow och shrink.
-Containrarna har alltså inte några definerade höjder men definerade
-bredder. Till det mesta annat har jag använt vmin och vmax vilket fungerar väldigt
-bra som "responsivt verktyg" då det är som vh och vw fast dem byter beroende 
-på om sidan/fönstret är större på bredd och på height - vilket hjälper konverteringen
-mellan desktop och mobil i viss min, i alla fall vissa resolutions däremellan.
-<br> <br>
-Alla mina ikoner kommer från Googles material.io (se LICENSE.txt under misc) vilket
-är ett val jag gjort då jag ville ha ett system där saker och ting samspelar på ett bra sätt, och även
-där ikonerna håller samma stil.
-<br> <br>
-Från början hade jag ju tänkt att skapa en helt flexbox-baserad sida där jag inte använde grids 
-eller knappast blocks, men eftersom märkte jag att det egentligen inte skulle ge allt för mycket
-och att vissa grids faktiskt skulle fungera exakt lika bra som en flexbox, även om de var integrerade i ett "flexbox-system"
-vilket faktiskt är något som jag har blivit rätt nöjd över. Med hjälp av att använda relativa enheter på mina attribut till
-klasser till de flesta elementen så har grids och flexboxar kunnat samspela i sidans layout. Vidare kan jag också nämna att 
-media quieries har använts för att ändra på layouten för att uppnå en desktoplayout men också för att skapa responsivitet 
-där flexboxsystemet och de relativa enheterna inte riktigt räckte till. */
-
-/* Glöm inte att i slutet testa din hemsida på chrome, safari, firefox mm (se kunskapskrav för vilka)
-Glöm inte heller att validera med "validator.w3.org" eller liknande för att se vad för 
-saker du kan behöva fixa, men detta behöver du en live-server till (får fixa på lektion, går inte att fixa så lätt) 
-Länken ovan används till html medans denna kan användas till css: "jigsaw.w3.org/css-validator" */
-
-/* Sidan för säkringar tenderar att bli konstig i preview mode för ipad, men det är endast en bugg som uppstår ibland och om man kollar
-ser man att width är densamma som på ex ljudljus osv och att textstorlek och all annan content inte varierar i bredd => fel på webbläsarvyn, och därför
-har jag visat när det fungerar här: https://gyazo.com/0283fd8989bea5fb5b12768eadc851ad
-Detsamma gäller för Wi-Fi sidan: https://gyazo.com/d4ca7293abb240dbc5bd02cf8cd4a142 */
